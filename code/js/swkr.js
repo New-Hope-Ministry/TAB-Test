@@ -13,7 +13,8 @@ async function saveLocal() {
         if ('serviceWorker' in navigator) {
             (async () => {
                 try {
-                    const registration = await navigator.serviceWorker.register('sw.js', { scope: scope });
+                    //const registration = await navigator.serviceWorker.register('sw.js', { scope: scope });
+                    const registration = await navigator.serviceWorker.register('sw.js');
                     console.log('Service Worker registered with scope:', registration.scope);
                 } catch (error) {
                     console.log('Service Worker registration failed:', error);
