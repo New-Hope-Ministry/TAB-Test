@@ -1,0 +1,557 @@
+html,
+body {
+     font-size: 110%;
+     margin: 0;
+     margin: 0;
+     padding: 0;
+     width: 100%;
+     height: 100%;
+}
+body {
+     background-color: var(--bodyBackground);
+     color: var(--blackText);
+     z-index: 10;
+}
+.cs-loader {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     border: 8px solid var(--mediumGray);
+     border-top: 8px solid var(--bannerBackground);
+     border-radius: 50%;
+     width: 2em;
+     height: 2em;
+     animation: spin 2s linear infinite;
+}
+@keyframes spin {
+     0% { transform: rotate(0deg); }
+     100% { transform: rotate(360deg); }
+}
+.cs-header {
+     position: fixed;
+     left: 0;
+     top: 0;
+     height: 2rem;
+     width: 100%;
+     padding-left: .8em;
+     line-height: 2rem;
+     font-size: 1.2rem;
+     background-color: var(--bannerBackground);
+     color: var(--whiteText);
+     user-select: none;
+     overflow: hidden;
+     z-index: 999;
+     z-index: 2;
+}
+
+.cs-player {
+     display: flex;
+     position: absolute;
+     justify-content: center;
+     align-items: center;
+     color: white;
+     top: 0;
+     right: 5%;
+     height: 2rem;
+     width: 2rem;
+     line-height: 2rem;
+     border-radius: 50%;
+     overflow: hidden;
+     z-index: 1;
+     cursor: pointer;
+}
+
+.cs-menu {
+     display: flex;
+     position: absolute;
+     left: 0;
+     width: 100%;
+     z-index: 1;
+}
+.cs-menu1 {
+     position: absolute;
+     left: 50%;
+     transform: translate(-50%);
+     width: max-content;
+}
+.cs-menuBtn {
+     text-decoration: none;
+     border: none;
+     outline: none;
+     font-size: 1.1rem;
+     background-color: var(--bannerBackground);
+     color: var(--whiteText);
+     padding: .3em;
+     cursor: pointer;
+}
+.cs-menuBtn1,
+.cs-menuBtn2 { padding-right: 3em;  }
+
+.cs-playerBtn {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     color: white;
+     height: 1em;
+     width: 1em;
+     font-size: 1em;
+     line-height: 1em;
+     z-index: 100;
+     margin: 0;
+     padding: .1em;
+     border-radius: 50%;
+}
+
+.cs-banner {
+     top: 2rem;
+     text-align: center;
+     border-bottom: 5px solid dimgray;
+}
+.cs-openPlayer {
+     display: none;
+     width: max-content;
+     margin: auto;
+     font-size: 1.2em;
+     background-color: #ba0e0e;
+     color: white;
+     border-radius: 6px;
+     padding: .4em;
+     padding-left: .8em;
+     padding-right: .8em;
+}
+
+.cs-progressContainer {
+     position: relative;
+     top: .5em;
+     width: 80%;
+     background: #dedcdc;
+     height: .6em;
+     overflow: hidden;
+     border-radius: 10px;
+     margin: auto;
+}
+
+.cs-progressBar {
+     width: 0%;
+     height: 100%;
+     background: var(--headlineBackground);
+     transition: width 0.1s linear;
+     border-radius: 10px;
+}
+
+.cs-synth {
+     display: block;
+     position: fixed;
+     height: 3.5em;
+     min-width: 100%;
+     width: 100%;
+     margin: auto;
+     background: #f3565b;
+}
+.cs-synthCheckBox { position: absolute; right: 5%; top: 40%; }
+.cs-plaCheckBoxLbl { font-size: .9rem; }
+.cs-speechBtns {
+     display: flex;
+     justify-content: center;
+     width: 70%;
+     margin: auto;
+}
+
+.cs-stopSpeech {
+     padding: .3em;
+     display: none;
+     margin-right: .5em;
+     margin-top: 1em;
+     cursor: pointer;
+}
+
+.cs-startSpeech {
+     padding: .3em;
+     margin-left: .5em;
+     margin-top: 1em;
+     cursor: pointer;
+}
+
+.cs-pauseSpeech {
+     display: none;
+     padding: .3em;
+     margin-left: .5em;
+     margin-top: 1em;
+     font-weight: 600;
+     cursor: pointer;
+}
+.cs-startOver { font-weight: 600; margin-right: -.2em; }
+
+.cs-pageContainer { width: 100%; z-index: 10; }
+.cs-mainPage {
+     border-radius: 6px;
+     width: 70%;
+     margin: auto;
+     background-color: var(--mainBackground);
+     color: var(--blackText);
+     overflow: hidden;
+}
+.cs-singleVerse {
+     margin-top: -.5em;
+     z-index: 100;
+}
+.cs-verseNumber {
+     margin-right: .5em;
+     color: var(--verseNumber);
+     font-size: .9rem;
+     font-weight: 550;
+     z-index: 100;
+}
+.cs-page {
+     text-align: justify;
+     margin: auto;
+     margin-top: 2.5em;
+     width: 80%;
+}
+.cs-headline,
+.cs-bottomLine {
+     height: 1.5rem;
+     width: 100%;
+     color: var(--whiteText);
+     background-color: var(--headlineBackground);
+     padding: .3em;
+     font-size: 1.35rem;
+}
+
+.cs-headline {
+     line-height: 1.5rem;
+     text-align: center;
+     color: var(--headlineColor)
+}
+.cs-bottomLine {
+     display: flex;
+     align-items: center;
+     font-size: 1.2rem;
+     user-select: none;
+     justify-content: space-evenly;
+}
+
+.cs-bottomTitleLine { width: max-content; }
+
+.cs-bottom {
+     bottom: 0;
+     left: 0;
+     height: max-content;
+     width: 100%;
+     padding-bottom: 2em;
+     background: linear-gradient(180deg, var(--gradientLight) 0%, var(--gradientDark) 100%);
+     z-index: 5;
+}
+
+.cs-help,
+.cs-help:visited,
+.cs-copyright,
+.cs-copyright:visited {
+     color: var(--whiteText);
+}
+
+.cs-help:hover,
+.cs-copyright:hover {
+     color: var(--paleMaroonEmphasis);
+     cursor: pointer;
+}
+
+.cs-help { position: relative; width: 98%; margin: auto; font-size: 1em; text-align: center; text-decoration: underline;}
+
+.cs-copySign {
+     font-size: .75em;
+}
+
+.cs-hrCopyright {
+     width: 98%;
+     margin: auto;
+}
+
+.cs-GodLovesYou {
+     width: 80%;
+     margin-left: auto;
+     margin-right: auto;
+     bottom: 0;
+     font-size: .8rem;
+     color: var(--whiteText);
+     text-align: center;
+}
+
+.cs-books,
+.cs-verses,
+.cs-chapters,
+.cs-versions,
+.cs-languages {
+     display: none;
+     position: absolute;
+     left: 50%;
+     height: max-content;
+     min-height: 25%;
+     max-height: 48%;
+     transform: translate(-50%);
+     background-color: #f1f1f1;
+     color: black;
+     box-shadow: 0px 8px 16px 0px var(--shadowColor);
+     border-bottom-left-radius: 8px;
+     border-bottom-right-radius: 8px;
+     overflow: hidden;
+     overflow-y: scroll;
+     z-index: 1;
+     max-width: 100%;
+}
+.cs-bookHeader,
+.cs-verseHeader,
+.cs-versionHeader,
+.cs-languageHeader,
+.cs-chapterHeader {
+     position: sticky;
+     top: 0;
+     padding: .35em;
+     padding-left: .8em;
+     font-size: 1.3em;
+     font-weight: 550;
+     background-color: var(--headerBackground);
+     color: var(--whiteText);
+     user-select: none;
+     width: 100%;
+     z-index: 1;
+     overflow: hidden;
+}
+.cs-closeBook {
+     display: flex;
+     position: absolute;
+     justify-content: center;
+     align-items: center;
+     right: 13%;
+     top: 50%;
+     transform: translateY(-50%);
+     margin: 0;
+     width: 1.2em;
+     height: 1.2em;
+     line-height: 1.2em;
+     padding: .2em;
+     font-size: .7rem;
+     border: 1px solid #434242;
+     border-radius: 50%;
+     background-color: var(--headlineBackground);
+     color: white;
+}
+.cs-heart {
+     display: flex;
+     position: absolute;
+     justify-content: center;
+     align-items: center;
+     height: 100%;
+     width: 100%;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+}
+.cs-bookLine {
+     position: relative;
+     display: flex;
+}
+.cs-book,
+.cs-version,
+.cs-language {
+     padding: .3em;
+     padding-left: .6em;
+     padding-right: .6em;
+     font-size: 1.2rem;
+}
+.cs-book {
+     width: 50%;
+}
+.cs-bookRight {
+     border-right: 1px solid black;
+}
+.cs-endBook {
+     padding: .3em;
+     padding-left: .6em;
+     padding-right: .6em;
+     width: 50%;
+     font-size: 1.3rem;
+}
+.cs-lastLine {
+     position: absolute;
+     text-align: center;
+     left: 50%;
+     transform: translate(-50%);
+     padding-bottom: 1.5em;
+}
+.cs-verseLine,
+.cs-chapterLine {
+     position: relative;
+     display: flex;
+     gap: .5em;
+     width: max-content;
+     margin: 0 auto;
+     margin-top: .5em;
+     padding-left: .5em;
+     padding-right: .5em;
+}
+.cs-verse,
+.cs-chapter {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 1.3em;
+     height: 1.8em;
+     width: 1.8em;
+     border: 1px solid red;
+     border-radius: 4px;
+}
+.cs-languageFlag {
+     position: absolute;
+     top: 0;
+     left: 0;
+     height: 100%;
+     width: .9em;
+     font-size: .4em;
+     color: white;
+     background-color: var(--bannerBackground);
+     padding-left: .2em;
+     padding-right: .2em;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+}
+.cs-changeLanguage {
+     color: #e8ef68;
+}
+.cs-openLngs {
+     display: flex;
+     position: absolute;
+     cursor: pointer;
+     justify-content: center;
+     align-items: center;
+     top: 30%;
+     transform: translateY(-30%);
+     right: 13%;
+     margin: 0;
+     width: 1.2em;
+     height: 1.2em;
+     line-height: 1.2em;
+     padding: .2em;
+     font-size: .7rem;
+     border: 1px solid #434242;
+     border-radius: 50%;
+     background-color: var(--headlineBackground);
+     color: white;
+}
+.cs-versionHeaderLanguage {
+     font-size: .8rem;
+}
+.cs-verse,
+.cs-chapter {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 1.3em;
+     height: 1.8em;
+     width: 1.8em;
+     border: 1px solid red;
+     border-radius: 4px;
+}
+.cs-bvSelected {
+     background-color: #8e8c8c;
+     color: white;
+}
+.cs-edited { font-size: .4em; color: #545353; }
+.cs-booksW {
+     width: max-content;
+}
+.cs-booksW1 {
+     width: var(--bookWidth);
+}
+
+/*? Media Queries Width */
+     @media (max-width: 1920px) {
+          .cs-mainPage { width: 60%; }
+          .cs-page { width: 90%; }
+     }
+     @media (max-width: 1440px) {
+          .cs-mainPage { width: 70%; border-radius: 6px; }
+          .cs-page { width: 90%; }
+     }
+     @media (max-width: 1280px) {
+          .cs-mainPage { width: 70%; }
+          .cs-page { width: 90%; }
+     }
+     @media (max-width: 1025px) {
+          .cs-mainPage { width: 100%; border-radius: 0; }
+          .cs-page { width: 90%; }
+     }
+     @media (max-width: 768px) {
+          .cs-menu1 { position: absolute; left: 20%; transform: translate(-25%); }
+          .cs-menuBtn { font-size: 1rem; }
+          .cs-books,
+          .cs-versions,
+          .cs-languages { width: 330px; }
+          .cs-book,
+          .cs-headline,
+          .cs-bottomLine { font-size: 1.1rem; }
+     }
+     @media (max-width: 480px) {
+          .cs-synthMenu { font-size: .80rem; }
+          .cs-synthTitleHeader { font-size: .80rem; }
+          .cs-banner { top: 1.95rem; }
+          .cs-books,
+          .cs-versions,
+          .cs-languages { width: 80%; }
+     }
+     @media (max-width: 348px) {
+          .cs-verse,
+          .cs-chapter { font-size: 1.2em; height: 1.6em; width: 1.6em; }
+          .cs-books,
+          .cs-versions,
+          .cs-languages { width: 100%; }
+          .cs-menuBtn { font-size: .80rem; }
+          .cs-book,
+          .cs-version { font-size: 1.1rem; }
+     }
+/*? End Media Queries Width */
+
+/*! Media Queries Heights */
+     @media (max-height: 1368px) { .cs-mainPage { margin-top: .5em; } }
+     @media (max-height: 1080px) {
+          .cs-page { margin-top: 2.5em; }
+          .cs-books,
+          .cs-versions,
+          .cs-languages { height: 49%; }
+     }
+     @media (max-height: 1024px) {
+          .cs-books,
+          .cs-versions,
+          .cs-languages { height: 48%; }
+     }
+
+     @media (max-height: 932px) {
+          .cs-books,
+          .cs-versions,
+          .cs-languages { max-height: 75%; }
+     }
+     @media (max-height: 741px) {
+          .cs-page { margin-top: 2em; }
+          .cs-books,
+          .cs-versions,
+          .cs-languages { height: 70%; }
+     }
+     @media (max-height: 668px) {
+          .cs-books,
+          .cs-versions,
+          .cs-languages { max-height: 67%; }
+     }
+     @media (max-height: 600px) { .cs-books,.cs-verses { max-height: 84%; } }
+     @media (max-height: 568px) {
+          .cs-books,
+          .cs-versions,
+          .cs-languages { height: 73%; }
+     }
+     @media (max-height: 480px) {
+          .cs-books,
+          .cs-versions,
+          .cs-languages { height: 83%; }
+     }
+/*! End Media Queries Heights */

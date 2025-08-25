@@ -1,0 +1,322 @@
+html { font-size: 110%; }
+html,
+body { margin: 0; padding: 0; width: 100%; height: max-content; max-height: 100%; overflow: hidden; overflow-y: scroll; }
+body { background-color: var(--bodyBackground); color: var(--blackText); z-index: 10; }
+p { font-size: 1.06rem; }
+.cs-loader {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     border: 8px solid var(--mediumGray);
+     border-top: 8px solid var(--bannerBackground);
+     border-radius: 50%;
+     width: 2em;
+     height: 2em;
+     animation: spin 2s linear infinite;
+}
+@keyframes spin {
+     0% { transform: rotate(0deg); }
+     100% { transform: rotate(360deg); }
+}
+.cs-header {
+     position: fixed;
+     left: 0;
+     height: 2rem;
+     width: 100%;
+     background-color: var(--bannerBackground);
+     color: var(--whiteText);
+     line-height: 2rem;
+     user-select: none;
+     overflow: hidden;
+     z-index: 999;
+}
+
+.cs-header1 {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 6%;
+     background-color: var(--bannerBackground);
+     color: var(--whiteText);
+     padding: 0;
+     padding-left: 2em;
+     overflow: hidden;
+     z-index: 1;
+     user-select: none;
+     border-bottom: 5px solid dimgray;
+}
+.cs-banner {
+     top: 2rem;
+     text-align: center;
+     border-bottom: 5px solid dimgray;
+}
+.cs-title {
+     top: 0;
+     padding-left: .8em;
+     font-size: 1.3rem;
+     z-index: 2;
+}
+.cs-headerTitle {
+     margin: 0;
+     position: absolute;
+     font-size: 1.3rem;
+     top: 5%;
+}
+
+.cs-chronTitleHeader {
+     font-size: 1rem;
+}
+
+.cs-versionHeader,
+.cs-chronDayHeader,
+.cs-chronChapterHeader {
+     position: sticky;
+     top: 0;
+     padding: .35em;
+     padding-left: .8em;
+     font-size: 1.3em;
+     font-weight: 550;
+     background-color: var(--headerBackground);
+     color: var(--whiteText);
+     user-select: none;
+     width: 100%;
+     z-index: 1;
+}
+
+.cs-chronDays,
+.cs-chronChapters {
+     display: none;
+     position: absolute;
+     left: 50%;
+     height: max-content;
+     max-height: 90%;
+     width: max-content;
+     max-width: 100%;
+     transform: translate(-50%);
+     background-color: #f1f1f1;
+     color: black;
+     box-shadow: 0px 8px 16px 0px var(--shadowColor);
+     border-bottom-left-radius: 8px;
+     border-bottom-right-radius: 8px;
+     overflow: hidden;
+     overflow-y: scroll;
+     z-index: 1;
+}
+
+.cs-chronDays { max-height: 82%; }
+.cs-book,
+.cs-version,
+.cs-chronChapter { padding: .3em; padding-left: .6em; padding-right: .6em; font-size: 1.3rem; }
+
+.cs-chronDayLine {
+     position: relative;
+     display: flex;
+     gap: .5em;
+     width: max-content;
+     margin: 0 auto;
+     margin-top: .5em;
+     padding-left: .5em;
+     padding-right: .5em;
+}
+
+.cs-chronDay {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 1.3em;
+     height: 1.8em;
+     width: 1.8em;
+     border: 1px solid red;
+     border-radius: 4px;
+}
+
+.cs-menu {
+     display: flex;
+     position: absolute;
+     left: 0;
+     width: 100%;
+     z-index: 1;
+}
+
+.cs-menu1 {
+     position: absolute;
+     left: 50%;
+     transform: translate(-50%);
+     width: max-content;
+}
+
+.cs-menuBtn1,
+.cs-menuBtn2 { padding-right: 2em;  }
+
+.cs-menuBtn {
+     text-decoration: none;
+     border: none;
+     outline: none;
+     font-size: 1.1rem;
+     background-color: var(--bannerBackground);
+     color: var(--whiteText);
+     padding: .3em;
+     cursor: pointer;
+}
+
+.cs-pageContainer { margin-top: 5em; width: 100%; z-index: 10; }
+.cs-mainPage { border-radius: 6px; width: 60%; margin: auto; background-color: var(--mainBackground); color: var(--blackText); overflow: hidden; }
+.cs-headline,
+.cs-bottomLine { height: 1.5rem; width: 100%; color: var(--whiteText); background-color: var(--headlineBackground); padding: .3em; font-size: 1.35rem;}
+
+.cs-headline,
+.cs-bottomLine { line-height: 1.5rem; text-align: center; color: var(--headlineColor)}
+.cs-page { text-align: justify; margin: auto; margin-top: 2.5em; width: 80%; }
+.cs-bottomTitleLine { width: max-content; }
+
+.cs-bottom { bottom: 0; left: 0; height: max-content; width: 100%; padding-bottom: 2em; background: linear-gradient(180deg, var(--gradientLight) 0%, var(--gradientDark) 100%); z-index: 2; }
+
+.cs-hrCopyright { width: 98%; margin-left: auto; margin-right: auto; }
+
+.cs-GodLovesYou { position: relative; text-align: center; width: 80%; margin-left: auto; margin-right: auto; bottom: 0; font-size: .8rem; color: var(--whiteText); }
+
+.cs-blueLtr,
+.cs-blueLtrLink {display: block; width: 60%; margin: auto;}
+
+.cs-copyright { display: inline-block; margin-top: .3em; }
+
+.cs-blueLtrLink,
+.cs-copyright,
+.cs-copyright:visited { color: var(--whiteText); text-decoration: underline;}
+
+.cs-blueLtrLink:hover,
+.cs-copyright:hover { color: var(--paleMaroonEmphasis); cursor: pointer; }
+
+.cs-copySign { font-size: .75em; }
+.cs-verseNumber { margin-right: .5em;  color: var(--verseNumber); font-size: .9rem; font-weight: 550; z-index: 100; }
+.cs-singleVerse { margin-top: -.5em; z-index: 100; }
+.cs-versions { display: none; position: absolute; left: 50%; height: 48%; transform: translate(-50%); background-color: #f1f1f1; color: black; box-shadow: 0px 8px 16px 0px var(--shadowColor); border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; z-index: 1; max-width: 100%; }
+.cs-lastLine { position: absolute; text-align: center; left: 50%; transform: translate(-50%); padding-bottom: 1.5em; }
+
+.cs-chronDay:hover,
+.cs-chronChapter:hover,
+.cs-version:hover { cursor: pointer; background-color: #8e8c8c; color: white; }
+
+.cs-bvSelected { background-color: #8e8c8c; color: white; }
+.cs-darkTheme { background-color: #3d3636; color: white; }
+.cs-bvSelected {
+     background-color: #8e8c8c;
+     color: white;
+}
+
+
+/*? Media Queries widths */
+@media (max-width: 1920px) {
+     .cs-mainPage { width: 60%; }
+     .cs-page { width: 90%; }
+}
+@media (max-width: 1440px) {
+     .cs-mainPage { width: 70%; border-radius: 6px; }
+     .cs-page { width: 90%; }
+}
+@media (max-width: 1280px) {
+     .cs-mainPage { width: 70%; }
+     .cs-page { width: 90%; }
+}
+@media (max-width: 1025px) {
+     .cs-mainPage { width: 100%; border-radius: 0; }
+     .cs-page { width: 90%; }
+}
+@media (max-width: 768px) {
+     .cs-menu1 { position: absolute; left: 20%; transform: translate(-25%); }
+     .cs-menuBtn { font-size: 1rem; }
+     .cs-books,
+     .cs-versions,
+     .cs-languages { width: 330px; }
+     .cs-book,
+     .cs-headline,
+     .cs-bottomLine { font-size: 1.1rem; }
+}
+@media (max-width: 480px) {
+     .cs-chronMenu { font-size: .80rem; }
+     .cs-chronTitleHeader { font-size: .80rem; }
+     .cs-banner { top: 1.95rem; }
+     .cs-books,
+     .cs-versions,
+     .cs-languages { width: 100%; }
+}
+@media (max-width: 348px) {
+     .cs-chronDay,
+     .cs-chapter { font-size: 1.2em; height: 1.6em; width: 1.6em; }
+     .cs-books
+     .cs-menuBtn { font-size: .80rem; }
+     .cs-book,
+     .cs-version { font-size: 1.1rem; }
+}
+
+
+
+
+/*! Media Queries Heights */
+     @media (max-height: 1368px) { .cs-mainPage { margin-top: .5em; } }
+     @media (max-height: 1080px) {
+          .cs-page { margin-top: 2.5em; }
+          .cs-books,
+          .cs-versions,
+          .cs-languages { height: 49%; }
+     }
+     @media (max-height: 1024px) {
+          .cs-books,
+          .cs-versions,
+          .cs-languages { height: 48%; }
+     }
+
+     @media (max-height: 932px) {
+          .cs-books,
+          .cs-versions,
+          .cs-languages { max-height: 75%; }
+     }
+     @media (max-height: 741px) {
+          .cs-page { margin-top: 2em; }
+          .cs-books,
+          .cs-versions,
+          .cs-languages { height: 70%; }
+     }
+     @media (max-height: 668px) {
+          .cs-books,
+          .cs-versions,
+          .cs-languages { max-height: 67%; }
+     }
+     @media (max-height: 600px) { .cs-books { max-height: 84%; } }
+     @media (max-height: 568px) {
+          .cs-books,
+          .cs-versions,
+          .cs-languages { height: 73%; }
+     }
+     @media (max-height: 480px) {
+          .cs-books,
+          .cs-versions,
+          .cs-languages { height: 83%; }
+     }
+/*! End Media Queries Heights */
+
+
+/* Utilities */
+html,
+body,
+.cs-chronDays,
+.cs-chronChapters,
+.cs-versions {
+     overflow: hidden;
+     overflow-y: scroll;
+     -ms-overflow-style: none;
+     /* IE and Edge */
+     scrollbar-width: none;
+     /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar,
+html::-webkit-scrollbar,
+.cs-chronDays::-webkit-scrollbar,
+.cs-chronChapters::-webkit-scrollbar,
+.cs-versions::-webkit-scrollbar {
+     display: none;
+}

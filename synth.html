@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <base href="./">
+     <title>Ark Bible speech synthesizer</title>
+     <link rel="icon" type="image/png" href="images/icons/logo-192.png">
+     <link rel="shortcut icon" sizes="192x192" type="image/png" href="images/icons/logo-192.png">
+     
+     <link async rel="stylesheet" type="text/css" href="code/css/variables.css">
+     <link async rel="stylesheet" type="text/css" href="code/css/synth.css">
+     <link defer rel="stylesheet" type="text/css" href="code/css/lateload.css">
+
+     <script async src="code/js/variables.js"></script>
+     <script async src="code/js/synth/synthLoadTables.js"></script>
+     <script async src="code/js/synth/synth.js"></script>
+     <script defer src="code/js/synth/synthUtilities.js"></script>
+     <script defer src="code/js/synth/synthLateLoad.js"></script>
+     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                document.getElementById('id-copyrighted').textContent = copyrighted;
+            }, 200);
+        });
+    </script>
+
+</head>
+
+<body>
+     <div id="id-loader" class="cs-loader"> </div>
+     <div id="top"></div>
+
+     <div id="id-header" class="cs-header" onclick="openBox(event)">
+          <span class="cs-headerTitle cs-synthTitleHeader">Listen to The Ark Bible</span>
+          <div id="id-player" class="cs-player" title="Listen to The Ark Bible" onclick="startSpeech()">
+               <div class="cs-playerBtn">🔊</div>
+          </div>
+     </div>
+
+     <div id="id-header1" class="cs-header cs-banner" onclick="openBox(event)">
+          <div id="id-menu" class="cs-menu cs-synthMenu">
+               <div class="cs-menu1" translate="no">
+                    <button id="id-SynthBtn1" class="cs-menuBtn cs-menuBtn1 cs-synthMenu" onclick="openBox(event)"
+                         title="Select A Version" translate="no">TWF</button>
+                    <button id="id-SynthBtn2" class="cs-menuBtn cs-menuBtn1 cs-synthMenu" onclick="openBox(event)"
+                         title="Select A Day" translate="no">Genesis</button>
+                    <button id="id-SynthBtn3" class="cs-menuBtn cs-menuBtn2 cs-synthMenu" onclick="openBox(event)"
+                         title="Select A Chapter" translate="no">1:</button>
+               </div>
+          </div>
+     </div>
+
+     <div id="id-synth" class="cs-synth">
+          <div id="id-progressContainer" class="cs-progressContainer">
+               <div id="id-progressBar" class="cs-progressBar"></div>
+          </div>
+          <div class="cs-speechBtns">
+               <button id="id-stopSpeech" class="cs-stopSpeech" onclick="stopSpeech()" translate="no"><span
+                         class="cs-startOver">|</span>◄</button>
+               <button id="id-startSpeech" class="cs-startSpeech" onclick="startSpeech()" translate="no">►</button>
+               <button id="id-pauseSpeech" class="cs-pauseSpeech" onclick="pauseSpeech()" translate="no">||</button>
+          </div>
+          <div class="cs-synthCheckBox">
+               <labelfor="id-palyCheckBox" class="cs-plaCheckBoxLbl" >Continuous Play</label>
+               <input id="id-playCheckBox" type="checkbox">
+          </div>
+     </div>
+
+
+     <div id="id-pageContainer" class="cs-pageContainer">
+
+          <div id="id-searchTop"></div>
+          <div id="id-mainPage" class="cs-mainPage">
+               <div id="id-headline" class="cs-headline">Genesis</div>
+
+               <div id="id-page" class="cs-page"></div>
+
+               <br><br><br><br><br>
+               <div class="cs-bottomLine">
+                    <div id="id-bottomTitleLine" class="cs-bottomTitleLine">Genesis 1</div>
+               </div>
+
+          </div>
+
+          <br><br><br><br>
+          <div class="cs-bottom">
+
+               <br><br>
+               <div class="cs-help" onclick="aClick('help.html')" title="Help">Help</div>
+
+               <br>
+               <hr class="cs-hrCopyright">
+               <br><br>
+               <div class="cs-GodLovesYou">
+                    <div>God loves you, Jesus loves you, I love you, and this is God's free gift for you!</div>
+                    <div>The TWF version is being actively edited and is subject to change daily.</div>
+                    <div>If you prefer to read older Bible versions, please feel free to do so.</div>
+                    <br>
+                    <a href="license.html" class="cs-copyright">
+                         <span>Copyright ©</span>
+                         <span id="id-copyrighted">2018-2025</span>
+                         <span class="cs-copySign">●</span>
+                         <span> New Hope Ministries </span>
+                         <span class="cs-copySign">●</span>
+                         <span> MIT License </span>
+                         <span class="cs-copySign">●</span>
+                         <span> Public Domain</span>
+                    </a>
+                    <br><br>
+               </div>
+          </div>
+     </div>
+
+</body>
+<div style="display: none;" id="id-voices"></div>
+<div id="id-versions" class="cs-versions"></div>
+<div id="id-languages" class="cs-languages"></div>
+<div id="id-books" class="cs-books"></div>
+<div id="id-chapters" class="cs-chapters"></div>
+
+</html>

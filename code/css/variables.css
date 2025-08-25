@@ -1,0 +1,26 @@
+:root {
+    --mediumGray: #c3c1c1;
+    --headlineBackground: #8e8c8c;
+    --blackText: black;
+    --whiteText: white;
+    --bannerBackground: #022a69;
+    --bodyBackground: #eee;
+    --headerBackground: #c02b31;
+    --headlineColor: white;
+    --mainBackground: white;
+    --verseNumber: #0505da;
+    --shadowColor: #07070733;
+
+    --lightGreenEmphasis: #07f007;
+    --lightGrayEmphasis: #757575;
+    --greenEmphasis: #045004;
+    --lightMaroonEmphasis: #ba0e0e;
+    --lighterMaroonEmphasis: #f10e0e;
+    --paleMaroonEmphasis: #f85e5e;
+    --maroonEmphasis: #530306;
+    --navyEmphasis: navy;
+
+    --gradientLight: #0064d9;
+    --gradientDark: #11428c;
+
+}

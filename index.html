@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <base href="./">
+     <link rel="manifest" href="manifest.json">
+     <link rel="icon" sizes="192x192" type="image/png" href="images/icons/logo-192.png">
+     <link rel="shortcut icon" sizes="192x192" type="image/png" href="images/icons/logo-192.png">
+     <title>The Ark Bible</title>
+
+     <link rel="stylesheet" type="text/css" href="code/css/variables.css">
+     <link rel="stylesheet" type="text/css" href="code/css/index.css">
+     <link rel="stylesheet" type="text/css" href="code/css/lateload.css">
+
+     <script async src="code/js/swkr.js"></script>
+     <script async src="code/js/variables.js"></script>
+     <script async src="code/js/utilities.js"></script>
+     <script async src="code/js/loadtables.js"></script>
+     <script async src="code/js/index.js"></script>
+     <script defer src="code/js/lateload.js"></script>
+     <script defer src="code/js/searcher.js"></script>
+     <script>
+          document.addEventListener("DOMContentLoaded", function () {
+               setTimeout(function () {
+                    document.getElementById('id-copyrighted').textContent = copyrighted;
+               }, 300);
+          });
+     </script>
+</head>
+
+<body>
+     <div id="id-loader" class="cs-loader"> </div>
+     <div id="top"></div>
+
+     <div id="id-headerTitle" class="cs-header cs-title" onclick="openBoxes(event)">
+          <span>The Ark Bible</span>
+          <div id="id-search" class="cs-search" onclick="openSearch(event)">
+               <div class="cs-magnifier">⚲</div>
+          </div>
+     </div>
+
+     <div id="id-header" class="cs-header cs-banner" onclick="openBoxes(event)">
+          <div id="id-menu" class="cs-menu">
+               <div class="cs-menu1">
+                    <button id="id-MenuBtn1" class="cs-menuBtn cs-menuBtns" onclick="openBoxes(event)"
+                         title="Select A Version" translate="no">TWF</button>
+                    <button id="id-MenuBtn2" class="cs-menuBtn cs-menuBtns" onclick="openBoxes(event)"
+                         title="Select A Book" translate="no">Genesis</button>
+                    <button id="id-MenuBtn3" class="cs-menuBtn cs-menuBtns" onclick="openBoxes(event)"
+                         title="Select A Chapter" translate="no">1:</button>
+                    <button id="id-MenuBtn4" class="cs-menuBtn" onclick="openBoxes(event)"
+                         title="Highlight the Selected Verse" translate="no">1</button>
+               </div>
+          </div>
+     </div>
+
+     <div id="id-pageContainer" class="cs-pageContainer" onclick="openBoxes(event)">
+
+          <div id="id-searchTop"></div>
+          <div id="id-mainPage" class="cs-mainPage">
+               <div id="id-headline" class="cs-headline">Twenty-First Century Version</div>
+               <div id="id-page" class="cs-page" onclick="unHighlight()"></div>
+
+               <br><br><br>
+               <div class="cs-bottomLine">
+                    <div id="id-bottomLastLine" class="cs-bottomLastLine" onclick="lastChapter()"
+                         style="visibility: hidden;">‹Last</div>
+                    <div id="id-bottomTitleLine" class="cs-bottomTitleLine">Genesis 1</div>
+                    <div id="id-bottomNextLine" class="cs-bottomNextLine" onclick="nextChapter()"
+                         style="visibility: visible;">Next ›</div>
+               </div>
+          </div>
+
+          <div id="id-readRandom" class="cs-readRandom">
+               <br><br>
+               <div id="id-randomChapter" class="cs-randomChapter" onclick="readRandomChapter()">
+                    Read a Random Chapter
+               </div>
+          </div>
+
+          <div id="id-searchContainer" class="cs-searchContainer">
+               <br>
+               <h2 class="cs-searchTitle">Search Bible Verses</span></h2>
+               <div class="cs-searchCase">
+                    <span id="id-searchVersion"></span>
+                    <br>
+                    <span>spelling & case sensitive</span>
+               </div>
+               <div id="id-searchPage" class="cs-searchPage">
+                    <div id="id-searchBox" class="cs-searchBox" type="text" contentEditable="true"
+                         data-placeholder="Search..." onkeydown="searchKeyDown()" tabindex="0" onfocus="searchFocus()">
+                    </div>
+                    <div class="cs-searchBtn" onclick="searcher()">Search</div>
+                    <div id="id-searchResults" class="cs-searchResult">
+
+                    </div>
+               </div>
+               <br><br><br>
+          </div>
+
+          <br><br><br><br>
+          <div class="cs-bottom">
+               <div id="id-settings" class="cs-settings">
+
+                    <div id="id-col1" class="cs-glossary">
+                         <h4 class="cs-glossaryHeaders">Overview</h4>
+                         <a class="cs-glossaryLink" onclick="aClick('about.html')">About The Ark</a>
+                         <br><br>
+                         <a class="cs-glossaryLink" onclick="aClick('statement.html')">Statement of Faith</a>
+                         <br><br>
+                         <a class="cs-glossaryLink" onclick="aClick('twfabout.html')">About Twenty-First Century
+                              Version</a>
+                         <br><br>
+                         <a class="cs-glossaryLink" onclick="aClick('license.html')">Licenses</a>
+                         <br><br>
+                         <a class="cs-glossaryLink" onclick="aClick('history.html')">Versions History</a>
+                         <br><br>
+                         <a class="cs-glossaryLink" onclick="aClick('qr.html')" title="The Ark Bible QR Code">Ark QR
+                              Code Link</a>
+                         <br><br>
+                         <a class="cs-glossaryLink" onclick="aClick('help.html')" title="Help">Help</a>
+                    </div>
+
+                    <div id="id-col2" class="cs-glossary">
+
+                         <h4 class="cs-glossaryHeaders">Settings</h4>
+                         <div>
+                              <button id="id-theme" title="Change Theme" class="cs-theme"
+                                   onclick="changeTheme()">☀️</button>
+
+                              <span id="id-themeNote" class="cs-themeNote" onclick="changeTheme()"
+                                   title="Change theme - Light Theme or Dark Theme">Theme</span>
+                         </div>
+
+                         <div class="cs-font">
+                              <span class="cs-fontLine">
+                                   <span class="cs-adjustFont1" onclick="changeFontSize('-')"
+                                        title="Increase Font Size">-</span>
+                              </span>
+
+                              <span class="cs-adjustFont" onclick="changeFontSize('d')"
+                                   title="Default Font Size">Font</span>
+
+
+                              <span class="cs-fontLine">
+                                   <span class="cs-adjustFont1" onclick="changeFontSize('+')"
+                                        title="Decrease Font Size">+</span>
+                              </span>
+                         </div>
+
+                         <div id="id-redLetter" class="cs-redLetter" onclick="redLetter()"
+                              title="Set color of Jesus' quotes - Red Letter or Black Letter">Red Letter</div>
+
+                         <div id="id-paragraphLayout" class="cs-paragraphLayout" onclick="paragraphLayout()"
+                              title="Set format of text layout - Paragraph or Single Line">Paragraph Layout</div>
+
+                         <div id="id-resetDefaults" class="cs-resetDefaults" onclick="resetDefaults()"
+                              title="Reset Defaults to Original">Reset Defaults</div>
+
+                    </div>
+
+                    <div id="id-endFontScroll"></div>
+               </div>
+
+               <br>
+               <a onclick="aClick('https://bibleask.org/')" target="_blank" class="cs-chat">
+                    BibleAsk AI Research Tool and Chat Bot
+               </a>
+               <br>
+               <a onclick="aClick('comp.html')" target="_blank" class="cs-chat">
+                    Compare Bible Versions
+               </a>
+               <br id="id-brListen">
+               <a id="id-listen" onclick="synthVoice()" target="_blank" class="cs-chat">
+                    Listen to the Bible
+               </a>
+               <br>
+               <a id="id-readChronological" class="cs-readChronological" onclick="readChronological()">
+                    365 Day Chronological Reading Plan
+               </a>
+               <br>
+
+               <hr class="cs-hrCopyright">
+               <br><br>
+               <div class="cs-GodLovesYou">
+                    <div>God loves you, Jesus loves you, I love you, and this is God's free gift for you!</div>
+                    <div>The TWF version is being actively edited and is subject to change daily.</div>
+                    <div>If you prefer to read older Bible versions, please feel free to do so.</div>
+                    <br>
+                    <a onclick="aClick('license.html')" class="cs-copyright">
+                         <span>Copyright ©</span>
+                         <span id="id-copyrighted">2018-2025</span>
+                         <span class="cs-copySign"> ● </span>
+                         <span>New Hope Ministries </span>
+                         <span class="cs-copySign"> ● </span>
+                         <span>MIT License</span>
+                         <span class="cs-copySign"> ● </span>
+                         <span>Public Domain</span>
+                    </a>
+                    <br><br>
+               </div>
+          </div>
+     </div>
+
+     <div id="id-end" class="cs-end">
+          <br>
+          <p id="id-endLine" class="cs-endLine">
+               Click OK if you agree to allow The Ark Bible app to store performance files locally. The Ark Bible app
+               does not collect or store any personal or tracking data. If you click Cancel, no files will be stored
+               locally. If you change your mind, you can reset the app by clicking the Reset Defaults button at the
+               bottom of the page, or clear your browser history. More information about the files stored can be found
+               if you click on the Help link at the bottom of the page. The app will operate much faster, if you allow
+               the files to be stored locally, and it will dramatically reduce data transfer usage for your internet
+               connection.
+          </p>
+          <br>
+          <div class="cs-endBtnLine">
+               <button class="cs-endBtn" onclick="saveLocal()">OK</button>
+               <button class="cs-endBtn" onclick="closeSave()">Cancel</button>
+          </div>
+          <br><br>
+     </div>
+
+     </div>
+
+     <div id="id-versions" class="cs-versions"></div>
+     <div id="id-languages" class="cs-languages"></div>
+     <div id="id-books" class="cs-books"></div>
+     <div id="id-chapters" class="cs-chapters"></div>
+     <div id="id-verses" class="cs-verses"></div>
+</body>
+
+</html>

@@ -1,0 +1,341 @@
+html,
+body {
+     font-size: 110%;
+     margin: 0;
+     margin: 0;
+     padding: 0;
+     width: 100%;
+     height: 100%;
+}
+
+body {
+     background-color: var(--bodyBackground);
+     color: var(--blackText);
+     z-index: 10;
+}
+
+.cs-header {
+     position: fixed;
+     left: 0;
+     height: 2rem;
+     width: 100%;
+     background-color: var(--bannerBackground);
+     color: var(--whiteText);
+     line-height: 2rem;
+     user-select: none;
+     overflow: hidden;
+     z-index: 999;
+}
+.cs-title {
+     top: 0;
+     padding-left: .8em;
+     font-size: 1.3rem;
+     z-index: 2;
+}
+.cs-banner {
+     top: 2rem;
+     text-align: center;
+     border-bottom: 5px solid dimgray;
+}
+.cs-menu {
+     display: flex;
+     position: absolute;
+     left: 0;
+     width: 100%;
+     z-index: 1;
+}
+.cs-menu1 {
+     position: absolute;
+     left: 50%;
+     transform: translate(-50%);
+     width: max-content;
+}
+.cs-menuBtn {
+     text-decoration: none;
+     border: none;
+     outline: none;
+     font-size: 1.1rem;
+     background-color: var(--bannerBackground);
+     color: var(--whiteText);
+     padding: .3em;
+     cursor: pointer;
+}
+.cs-menuBtns {
+     padding-right: 2em;
+}
+.cs-pageContainer { width: 100%; z-index: 10; }
+.cs-mainPage {
+     border-radius: 6px;
+     width: 99%;
+     margin: auto;
+     background-color: var(--mainBackground);
+     color: var(--blackText);
+     overflow: hidden;
+}
+.cs-headline,
+.cs-bottomLine {
+     height: 1.5rem;
+     width: 100%;
+     color: var(--whiteText);
+     background-color: var(--headlineBackground);
+     padding: .3em;
+     font-size: 1.35rem;
+}
+.cs-headline {
+     line-height: 1.5rem;
+     text-align: center;
+     color: var(--headlineColor)
+}
+.cs-headline1 { border-left: 5px solid dimgray; }
+.cs-bottomLine {
+     display: flex;
+     align-items: center;
+     font-size: 1.2rem;
+     user-select: none;
+     justify-content: space-evenly;
+}
+.cs-page {
+     text-align: justify;
+     margin: auto;
+     margin-top: 0;
+     width: 100%;
+     padding-left: .5em;
+     padding-right: .5em;
+}
+.cs-page1 { border-left: 5px solid dimgray; }
+.cs-bottomTitleLine { width: max-content; }
+.cs-bottom {
+     bottom: 0;
+     left: 0;
+     height: max-content;
+     width: 100%;
+     padding-bottom: 2em;
+     background: linear-gradient(180deg, var(--gradientLight) 0%, var(--gradientDark) 100%);
+     z-index: 5;
+}
+.cs-hrCopyright { width: 98%; margin: auto; }
+.cs-GodLovesYou {
+     width: 80%;
+     margin-left: auto;
+     margin-right: auto;
+     bottom: 0;
+     font-size: .8rem;
+     color: var(--whiteText);
+     text-align: center;
+}
+.cs-copyright,
+.cs-copyright:visited { color: var(--whiteText); text-decoration: underline; }
+.cs-copyright:hover { color: var(--paleMaroonEmphasis);  cursor: pointer; }
+.cs-copySign { font-size: .75em; }
+.cs-edited { font-size: .4em; color: #545353; }
+.cs-singleVerse { margin-top: -.5em; z-index: 100; }
+.cs-verseNumber {
+     margin-right: .5em;
+     color: var(--verseNumber);
+     font-size: .9rem;
+     font-weight: 550;
+     z-index: 100;
+}
+.cs-books,
+.cs-chapters,
+.cs-versions,
+.cs-languages {
+     display: none;
+     position: absolute;
+     left: 50%;
+     height: max-content;
+     min-height: 25%;
+     max-height: 48%;
+     width: max-content;
+     max-width: 100%;
+     transform: translate(-50%);
+     background-color: #f1f1f1;
+     color: black;
+     box-shadow: 0px 8px 16px 0px var(--shadowColor);
+     border-bottom-left-radius: 8px;
+     border-bottom-right-radius: 8px;
+     overflow: hidden;
+     overflow-y: scroll;
+     z-index: 1;
+}
+.cs-changeLanguage { color: #e8ef68; }
+.cs-bookHeader,
+.cs-versionHeader,
+.cs-languageHeader,
+.cs-chapterHeader {
+     position: sticky;
+     top: 0;
+     padding: .35em;
+     padding-left: .8em;
+     font-size: 1.3em;
+     font-weight: 550;
+     background-color: var(--headerBackground);
+     color: var(--whiteText);
+     user-select: none;
+     width: 100%;
+     z-index: 1;
+     overflow: hidden;
+}
+.cs-chapter {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 1.3em;
+     height: 1.8em;
+     width: 1.8em;
+     border: 1px solid red;
+     border-radius: 4px;
+}
+.cs-versionHeaderLanguage { font-size: .8rem; }
+.cs-book,
+.cs-version,
+.cs-language {
+     padding: .3em;
+     padding-left: .6em;
+     padding-right: .6em;
+     font-size: 1.2rem;
+}
+.cs-book {
+     width: 50%;
+}
+.cs-booksW {
+     width: max-content;
+}
+
+.cs-booksW1 {
+     width: var(--bookWidth);
+}
+.cs-bookLine {
+     position: relative;
+     display: flex;
+}
+.cs-bookRight {
+     border-right: 1px solid black;
+}
+.cs-endBook {
+     padding: .3em;
+     padding-left: .6em;
+     padding-right: .6em;
+     width: 50%;
+     font-size: 1.3rem;
+}
+.cs-closeBook {
+     display: flex;
+     position: absolute;
+     justify-content: center;
+     align-items: center;
+     right: 13%;
+     top: 50%;
+     transform: translateY(-50%);
+     margin: 0;
+     width: 1.2em;
+     height: 1.2em;
+     line-height: 1.2em;
+     padding: .2em;
+     font-size: .7rem;
+     border: 1px solid #434242;
+     border-radius: 50%;
+     background-color: var(--headlineBackground);
+     color: white;
+}
+.cs-heart {
+     display: flex;
+     position: absolute;
+     justify-content: center;
+     align-items: center;
+     height: 100%;
+     width: 100%;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+}
+.cs-chapters {
+     height: max-content;
+     max-height: 90%;
+     width: max-content;
+}
+.cs-chapterLine {
+     position: relative;
+     display: flex;
+     gap: .5em;
+     width: max-content;
+     margin: 0 auto;
+     margin-top: .5em;
+     padding-left: .5em;
+     padding-right: .5em;
+}
+.cs-openLngs {
+     display: flex;
+     position: absolute;
+     cursor: pointer;
+     justify-content: center;
+     align-items: center;
+     top: 30%;
+     transform: translateY(-30%);
+     right: 13%;
+     margin: 0;
+     width: 1.2em;
+     height: 1.2em;
+     line-height: 1.2em;
+     padding: .2em;
+     font-size: .7rem;
+     border: 1px solid #434242;
+     border-radius: 50%;
+     background-color: var(--headlineBackground);
+     color: white;
+}
+/*.cs-filler,*/
+.cs-bvSelected {
+     background-color: #8e8c8c;
+     color: white;
+}
+.cs-lastLine {
+     position: absolute;
+     text-align: center;
+     left: 50%;
+     transform: translate(-50%);
+     padding-bottom: 1.5em;
+}
+.cs-languageFlag {
+     position: absolute;
+     top: 0;
+     left: 0;
+     height: 100%;
+     width: .9em;
+     font-size: .4em;
+     color: white;
+     background-color: var(--bannerBackground);
+     padding-left: .2em;
+     padding-right: .2em;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+}
+
+
+
+/*.cs-sortHeader:hover,*/
+.cs-openLngs:hover,
+.cs-closeBook:hover,
+.cs-adjustFont1:hover { background-color: #82b4fe; color: white; cursor: pointer; }
+
+.cs-book:hover,
+.cs-verse:hover,
+.cs-version:hover,
+.cs-language:hover,
+.cs-chapter:hover { cursor: pointer; background-color: #8e8c8c; color: white; }
+body,
+html,
+.cs-books,
+.cs-chapters,
+.cs-versions,
+.cs-languages { overflow: hidden; overflow-y: scroll; -ms-overflow-style: none;  /* IE and Edge */ scrollbar-width: none;  /* Firefox */ }
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar,
+html::-webkit-scrollbar,
+.cs-chapters::-webkit-scrollbar,
+.cs-books::-webkit-scrollbar,
+.cs-versions::-webkit-scrollbar,
+.cs-languages::-webkit-scrollbar { display: none; }
+/* Selected text */
+::selection { background-color: #4180de; color: white; }

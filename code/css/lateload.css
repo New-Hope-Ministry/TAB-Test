@@ -1,0 +1,68 @@
+/* Hide Scrollbars */
+body,
+html,
+.cs-books,
+.cs-chapters,
+.cs-verses,
+.cs-versions,
+.cs-searchBox,
+.cs-languages { overflow: hidden; overflow-y: scroll; -ms-overflow-style: none;  /* IE and Edge */ scrollbar-width: none;  /* Firefox */ }
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar,
+html::-webkit-scrollbar,
+.cs-chapters::-webkit-scrollbar,
+.cs-books::-webkit-scrollbar,
+.cs-verses::-webkit-scrollbar,
+.cs-versions::-webkit-scrollbar,
+.cs-searchBox::-webkit-scrollbar,
+.cs-languages::-webkit-scrollbar { display: none; }
+
+/* ********************************************/
+
+/* Hovers */
+.cs-themeNote,
+.cs-svgTheme:hover,
+.cs-dialogBtn:hover,
+.cs-adjustFont:hover,
+.cs-redLetter:hover,
+.cs-resetData:hover,
+.cs-resetDefaults:hover,
+.cs-glossaryLink:hover,
+.cs-paragraphLayout:hover { cursor: pointer; }
+
+.cs-search:hover,
+.cs-menuBtn:hover,
+.cs-closeTWF:hover,
+.cs-bottomLastLine:hover,
+.cs-bottomNextLine:hover,
+.cs-statement:hover,
+.cs-searchResults:hover { color: red; cursor: pointer; }
+
+/*.cs-sortHeader:hover,*/
+.cs-openLngs:hover,
+.cs-closeBook:hover,
+.cs-adjustFont1:hover { background-color: #82b4fe; color: white; cursor: pointer; }
+
+.cs-book:hover,
+.cs-verse:hover,
+.cs-version:hover,
+.cs-language:hover,
+.cs-chapter:hover { cursor: pointer; background-color: #8e8c8c; color: white; }
+
+.cs-chat:hover,
+.cs-randomChapter:hover,
+.cs-readChronological:hover,
+.cs-searchBtn:hover { background-color: #706f6f; cursor: pointer; }
+
+
+.cs-endBtn:hover,
+.cs-searchChapter:hover { color: #b20303; cursor: pointer; }
+
+/* Selected text */
+::selection { background-color: #4180de; color: white; }
+
+.cs-searchBox[contenteditable="true"]:empty:before {
+    content: attr(data-placeholder);
+    color: gray;
+    font-style: italic;
+}

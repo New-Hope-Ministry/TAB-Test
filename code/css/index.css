@@ -1,0 +1,794 @@
+html,
+body {
+     font-size: 110%;
+     margin: 0;
+     margin: 0;
+     padding: 0;
+     width: 100%;
+     height: 100%;
+}
+
+body {
+     background-color: var(--bodyBackground);
+     color: var(--blackText);
+     z-index: 10;
+}
+
+.cs-header {
+     position: fixed;
+     left: 0;
+     height: 2rem;
+     width: 100%;
+     background-color: var(--bannerBackground);
+     color: var(--whiteText);
+     line-height: 2rem;
+     user-select: none;
+     overflow: hidden;
+     z-index: 999;
+}
+
+.cs-title {
+     top: 0;
+     padding-left: .8em;
+     font-size: 1.3rem;
+     z-index: 2;
+}
+
+.cs-banner {
+     top: 2rem;
+     text-align: center;
+     border-bottom: 5px solid dimgray;
+}
+
+.cs-closeBook {
+     display: flex;
+     position: absolute;
+     justify-content: center;
+     align-items: center;
+     right: 13%;
+     top: 50%;
+     transform: translateY(-50%);
+     margin: 0;
+     width: 1.2em;
+     height: 1.2em;
+     line-height: 1.2em;
+     padding: .2em;
+     font-size: .7rem;
+     border: 1px solid #434242;
+     border-radius: 50%;
+     background-color: var(--headlineBackground);
+     color: white;
+}
+
+.cs-heart {
+     display: flex;
+     position: absolute;
+     justify-content: center;
+     align-items: center;
+     height: 100%;
+     width: 100%;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+}
+
+
+.cs-openLngs {
+     display: flex;
+     position: absolute;
+     cursor: pointer;
+     justify-content: center;
+     align-items: center;
+     top: 30%;
+     transform: translateY(-30%);
+     right: 13%;
+     margin: 0;
+     width: 1.2em;
+     height: 1.2em;
+     line-height: 1.2em;
+     padding: .2em;
+     font-size: .7rem;
+     border: 1px solid #434242;
+     border-radius: 50%;
+     background-color: var(--headlineBackground);
+     color: white;
+}
+
+.cs-adjustFont1 {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 1.2rem;
+     width: 1.2rem;
+     line-height: 1.2em;
+     border-radius: 50%;
+     background-color: var(--whiteText);
+     color: var(--bannerBackground);
+     font-weight: 550;
+}
+
+.cs-fontLine {
+     display: inline-block;
+     text-align: center;
+     vertical-align: middle;
+     height: 1.2rem;
+     width: 1.2rem;
+     line-height: 1.2em;
+     font-size: 1.1em;
+}
+
+.cs-emphasis {
+     color: var(--lighterMaroonEmphasis);
+}
+
+.cs-rotate180 {
+     transform: translate(-50%, -50%) rotate(180deg);
+     transition: transform 0.3s ease;
+}
+
+.cs-search {
+     display: flex;
+     cursor: pointer;
+     justify-content: center;
+     align-items: center;
+     position: absolute;
+     color: white;
+     top: 0;
+     right: 5%;
+     height: 1.6rem;
+     width: 1.6rem;
+     line-height: 1.6rem;
+     font-size: 1.6em;
+     padding: .35em;
+     border-radius: 50%;
+     overflow: hidden;
+     z-index: 1;
+}
+
+.cs-magnifier {
+     display: flex;
+     cursor: pointer;
+     justify-content: center;
+     align-items: center;
+     rotate: -45deg;
+     color: white;
+     top: 0;
+     z-index: 100;
+     margin: 0;
+     padding: 0;
+}
+
+.cs-menu {
+     display: flex;
+     position: absolute;
+     left: 0;
+     width: 100%;
+     z-index: 1;
+}
+
+.cs-menu1 {
+     position: absolute;
+     left: 50%;
+     transform: translate(-50%);
+     width: max-content;
+}
+
+.cs-menuBtn {
+     text-decoration: none;
+     border: none;
+     outline: none;
+     font-size: 1.1rem;
+     background-color: var(--bannerBackground);
+     color: var(--whiteText);
+     padding: .3em;
+     cursor: pointer;
+}
+
+.cs-menuBtns {
+     padding-right: 2em;
+}
+
+.cs-mainPage,
+.cs-searchContainer {
+     border-radius: 6px;
+     width: 70%;
+     margin: auto;
+     background-color: var(--mainBackground);
+     color: var(--blackText);
+     overflow: hidden;
+}
+
+.cs-searchContainer {
+     display: none;
+     margin-top: 4.5em;
+     height: max-content;
+     min-height: 100%;
+}
+
+.cs-searchCase {
+     width: 90%;
+     margin: auto;
+     text-align: center;
+     font-size: .9em;
+}
+
+.cs-searchTitle {
+     width: 90%;
+     margin: auto;
+     text-align: center;
+}
+
+.cs-searchBox {
+     height: 2.5em;
+     width: 74%;
+     background-color: var(--mediumGray);
+     color: black;
+     border-radius: 6px;
+     border: 1px solid red;
+     margin: auto;
+     line-height: 2.5em;
+     padding-left: 1em;
+     padding-right: 3em;
+     font-size: 1.3rem;
+     z-index: 12;
+     white-space: nowrap;
+     overflow-x: scroll;
+     overflow-y: hidden;
+}
+
+.cs-searchBtn {
+     color: white;
+     background-color: red;
+     padding: .6em;
+     border-radius: 6px;
+     width: 10%;
+     margin: auto;
+     margin-top: .6em;
+     font-size: 1.1em;
+     z-index: 12;
+     text-align: center;
+     border: 2px solid black;
+}
+
+.cs-searchResult {
+     margin-top: 5%;
+}
+
+.cs-searchChapter {
+     font-size: 1.2rem;
+     text-decoration: underline;
+     color: var(--navyEmphasis);
+}
+
+.cs-searchVerse {
+     margin-top: -.1em;
+}
+
+.cs-searchResults {
+     font-size: 1.2rem;
+     text-decoration: underline;
+     color: var(--lightMaroonEmphasis);
+}
+
+.cs-headline,
+.cs-bottomLine {
+     height: 1.5rem;
+     width: 100%;
+     color: var(--whiteText);
+     background-color: var(--headlineBackground);
+     padding: .3em;
+     font-size: 1.35rem;
+}
+
+.cs-headline {
+     line-height: 1.5rem;
+     text-align: center;
+     color: var(--headlineColor)
+}
+
+.cs-bottomLine {
+     display: flex;
+     align-items: center;
+     font-size: 1.2rem;
+     user-select: none;
+     justify-content: space-evenly;
+}
+
+.cs-bottomTitleLine {
+     width: max-content;
+}
+
+.cs-bottom {
+     bottom: 0;
+     left: 0;
+     height: max-content;
+     width: 100%;
+     padding-bottom: 2em;
+     background: linear-gradient(180deg, var(--gradientLight) 0%, var(--gradientDark) 100%);
+     z-index: 5;
+}
+
+.cs-pageContainer { width: 100%; z-index: 10; }
+
+.cs-searchPage,
+.cs-page {
+     text-align: justify;
+     margin: auto;
+     margin-top: 2.5em;
+     width: 80%;
+}
+
+.cs-singleVerse {
+     margin-top: -.5em;
+     z-index: 100;
+}
+
+.cs-verseNumber {
+     margin-right: .5em;
+     color: var(--verseNumber);
+     font-size: .9rem;
+     font-weight: 550;
+     z-index: 100;
+}
+
+.cs-books,
+.cs-verses,
+.cs-chapters,
+.cs-versions,
+.cs-languages {
+     display: none;
+     position: absolute;
+     left: 50%;
+     height: max-content;
+     min-height: 25%;
+     max-height: 48%;
+     transform: translate(-50%);
+     background-color: #f1f1f1;
+     color: black;
+     box-shadow: 0px 8px 16px 0px var(--shadowColor);
+     border-bottom-left-radius: 8px;
+     border-bottom-right-radius: 8px;
+     overflow: hidden;
+     overflow-y: scroll;
+     z-index: 1;
+     max-width: 100%;
+}
+
+.cs-changeLanguage {
+     color: #e8ef68;
+}
+
+.cs-languageFlag {
+     position: absolute;
+     top: 0;
+     left: 0;
+     height: 100%;
+     width: .9em;
+     font-size: .4em;
+     color: white;
+     background-color: var(--bannerBackground);
+     padding-left: .2em;
+     padding-right: .2em;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+}
+
+.cs-verses,
+.cs-chapters {
+     height: max-content;
+     max-height: 90%;
+     width: max-content;
+}
+
+.cs-bookHeader,
+.cs-verseHeader,
+.cs-versionHeader,
+.cs-languageHeader,
+.cs-chapterHeader {
+     position: sticky;
+     top: 0;
+     padding: .35em;
+     padding-left: .8em;
+     font-size: 1.3em;
+     font-weight: 550;
+     background-color: var(--headerBackground);
+     color: var(--whiteText);
+     user-select: none;
+     width: 100%;
+     z-index: 1;
+     overflow: hidden;
+}
+
+.cs-versionHeaderLanguage {
+     font-size: .8rem;
+}
+
+.cs-book,
+.cs-version,
+.cs-language {
+     padding: .3em;
+     padding-left: .6em;
+     padding-right: .6em;
+     font-size: 1.2rem;
+}
+
+.cs-book {
+     width: 50%;
+}
+
+/*.cs-filler,*/
+.cs-bvSelected {
+     background-color: #8e8c8c;
+     color: white;
+}
+
+.cs-lastLine {
+     position: absolute;
+     text-align: center;
+     left: 50%;
+     transform: translate(-50%);
+     padding-bottom: 1.5em;
+}
+
+.cs-bookLine {
+     position: relative;
+     display: flex;
+}
+
+.cs-bookRight {
+     border-right: 1px solid black;
+}
+
+.cs-endBook {
+     padding: .3em;
+     padding-left: .6em;
+     padding-right: .6em;
+     width: 50%;
+     font-size: 1.3rem;
+}
+
+.cs-verseLine,
+.cs-chapterLine {
+     position: relative;
+     display: flex;
+     gap: .5em;
+     width: max-content;
+     margin: 0 auto;
+     margin-top: .5em;
+     padding-left: .5em;
+     padding-right: .5em;
+}
+
+.cs-verse,
+.cs-chapter {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 1.3em;
+     height: 1.8em;
+     width: 1.8em;
+     border: 1px solid red;
+     border-radius: 4px;
+}
+
+.cs-booksW {
+     width: max-content;
+}
+
+.cs-booksW1 {
+     width: var(--bookWidth);
+}
+
+.cs-readRandom {
+     display: none;
+}
+
+.cs-randomChapter {
+     width: max-content;
+     margin: auto;
+     font-size: 1.2em;
+     background-color: #ba0e0e;
+     color: white;
+     border-radius: 6px;
+     padding: .8em;
+}
+
+.cs-settings {
+     display: flex;
+     justify-content: space-evenly;
+     bottom: 0;
+     left: 0;
+     height: max-content;
+     width: 100%;
+     padding-bottom: 2em;
+     padding-left: .8em;
+     background-color: var(--bannerBackground);
+     z-index: 0;
+}
+
+.cs-glossary {
+     position: relative;
+     margin-top: 1.2em;
+     margin-bottom: 1.2em;
+     color: var(--whiteText);
+     width: 99%;
+     z-index: 0;
+}
+
+.cs-glossaryLink {
+     font-size: .9rem;
+     color: var(--whiteText);
+     text-decoration: none;
+     z-index: 10;
+}
+
+.cs-glossaryHeaders {
+     user-select: none;
+     color: var(--lightGreenEmphasis);
+}
+
+.cs-darkTheme {
+     background-color: #3d3636;
+     color: white;
+}
+
+.cs-theme {
+     cursor: pointer;
+     border: none;
+     padding-bottom: .3em;
+     border-radius: 3px;
+}
+
+.cs-themeNote {
+     position: absolute;
+     padding-left: 1em;
+     vertical-align: middle;
+     text-decoration: underline;
+     font-size: .9rem;
+}
+
+.cs-font,
+.cs-redLetter,
+.cs-resetData,
+.cs-resetDefaults,
+.cs-paragraphLayout {
+     width: max-content;
+     margin-top: 1em;
+     background-color: var(--bannerBackground);
+     color: var(--whiteText);
+     user-select: none;
+}
+
+.cs-adjustFont,
+.cs-redLetter,
+.cs-resetData,
+.cs-resetDefaults,
+.cs-paragraphLayout {
+     padding-left: 1.5em;
+     padding-right: 1.5em;
+     text-decoration: underline;
+     font-size: .9rem;
+}
+
+.cs-chat,
+.cs-readChronological {
+     display: flex;
+     text-decoration: none;
+     height: 2em;
+     width: 20em;
+     background-color: #ba0e0e;
+     color: white;
+     border-radius: 6px;
+     margin: auto;
+     justify-content: center;
+     align-items: center;
+}
+.cs-copyright { text-decoration: underline; }
+.cs-copyright,
+.cs-copyright:visited {
+     color: var(--whiteText);
+}
+
+.cs-copyright:hover {
+     cursor: pointer;
+     color: var(--paleMaroonEmphasis);
+}
+
+.cs-copySign {
+     font-size: .75em;
+}
+
+.cs-hrCopyright {
+     width: 98%;
+     margin: auto;
+}
+
+.cs-GodLovesYou {
+     width: 80%;
+     margin-left: auto;
+     margin-right: auto;
+     bottom: 0;
+     font-size: .8rem;
+     color: var(--whiteText);
+     text-align: center;
+}
+
+.cs-GodLovesYouPages {
+     color: var(--blackText);
+}
+
+.cs-end {
+     display: none;
+     position: fixed;
+     bottom: 0;
+     left: 0;
+     width: 100%;
+     height: max-content;
+     background-color: #f1f2f3;
+     border-top: 3px solid #9b9a9a;
+     color: #010914
+}
+
+.cs-endLine {
+     position: relative;
+     width: 60%;
+     top: 10%;
+     margin: auto;
+     font-size: .9rem;
+     text-align: justify;
+}
+
+.cs-endBtnLine {
+     display: flex;
+     justify-content: space-evenly;
+     top: 10%;
+     width: 50%;
+     margin: auto;
+}
+
+.cs-endBtn {
+     position: relative;
+     display: block;
+     background-color: #9b9a9a;
+     color: white;
+     width: 5em;
+     height: 2em;
+     border: none;
+     cursor: pointer;
+     margin: auto;
+     font-weight: 550;
+}
+
+.cs-loader {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     border: 8px solid var(--mediumGray);
+     border-top: 8px solid var(--bannerBackground);
+     border-radius: 50%;
+     width: 2em;
+     height: 2em;
+     animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+     0% { transform: rotate(0deg); }
+     100% { transform: rotate(360deg); }
+}
+.cs-edited { font-size: .4em; color: #545353; }
+
+/*? Media Queries Widths */
+     @media (max-width: 1920px) {
+          .cs-mainPage { width: 60%; }
+          .cs-page { width: 90%; }
+          .cs-searchPage { width: 95%; }
+          .cs-searchContainer { width: 100%; }
+          .cs-searchBtn { width: 20%; }
+     }
+     @media (max-width: 1440px) {
+          .cs-mainPage { width: 70%; border-radius: 6px; }
+          .cs-page { width: 90%; }
+          .cs-searchPage { width: 95%; }
+          .cs-searchContainer { width: 100%; }
+          .cs-searchBtn { width: 20%; }
+     }
+    @media (max-width: 1280px) {
+         .cs-mainPage { width: 70%; }
+         .cs-page { width: 90%; }
+         .cs-searchPage { width: 95%; }
+         .cs-searchContainer { width: 80%; }
+         .cs-searchBtn { width: 20%; }
+    }
+    @media (max-width: 1025px) {
+          .cs-mainPage { width: 100%; border-radius: 0; }
+          .cs-page { width: 90%; }
+          .cs-searchPage { width: 95%; }
+          .cs-searchContainer { width: 100%; }
+          .cs-searchBtn { width: 20%; }
+     }
+     @media (max-width: 768px) {
+          .cs-menu1 { position: absolute; left: 20%; transform: translate(-25%); }
+          .cs-menuBtn { font-size: 1rem; }
+          .cs-books,
+          .cs-versions,
+          .cs-languages { width: 330px; }
+          .cs-book,
+          .cs-headline,
+          .cs-bottomLine { font-size: 1.1rem; }
+     }
+     @media (max-width: 480px) {
+          .cs-headerTitle { font-size: 1em; }
+          .cs-menu1 { position: absolute; left: 25%; transform: translate(-25%); }
+          .cs-books,
+          .cs-versions,
+          .cs-languages { width: 80%; }
+          .cs-page { width: 90%; }
+          .cs-search { right: 15%; }
+          .cs-searchPage { width: 95%; }
+          .cs-searchContainer { width: 100%; }
+          .cs-searchBtn { width: 20%; }
+     }
+     @media (max-width: 380px) { .cs-search { right: 10%; } }
+     @media (max-width: 348px) {
+          .cs-chronDay,
+          .cs-verse,
+          .cs-chapter { font-size: 1.2em; height: 1.6em; width: 1.6em; }
+          .cs-books,
+          .cs-versions,
+          .cs-languages { width: 100%; }
+          .cs-menuBtn { font-size: .80rem; }
+          .cs-book,
+          .cs-version { font-size: 1.1rem; }
+     }
+     @media (max-width: 295px) { .cs-search { right: 6%; } }
+/*? End Media Queries Widths */
+
+/*! Media Queries Heights */
+     @media (max-height: 1368px) { .cs-mainPage { margin-top: .5em; } }
+     @media (max-height: 1280px) {  }
+     @media (max-height: 1080px) {
+          .cs-page { margin-top: 2.5em; }
+          .cs-searchContainer { margin-top: 5.5em; }
+          .cs-books,
+          .cs-versions,
+          .cs-languages { height: 49%; }
+     }
+     @media (max-height: 1024px) {
+          .cs-books,
+          .cs-versions,
+          .cs-languages { height: 48%; }
+     }
+
+     @media (max-height: 932px) {
+          .cs-books,
+          .cs-versions,
+          .cs-languages { max-height: 75%; }
+     }
+     @media (max-height: 741px) {
+          .cs-page { margin-top: 2em; }
+          .cs-searchContainer { margin-top: 5em; }
+          .cs-books,
+          .cs-versions,
+          .cs-languages { height: 70%; }
+     }
+     @media (max-height: 668px) {
+          .cs-searchContainer { margin-top: 5.9em; }
+          .cs-books,
+          .cs-versions,
+          .cs-languages { max-height: 67%; }
+     }
+     @media (max-height: 600px) { .cs-chronDays,.cs-verses { max-height: 84%; } }
+     @media (max-height: 568px) {
+          .cs-searchContainer { margin-top: 4.9em; }
+          .cs-books,
+          .cs-versions,
+          .cs-languages { height: 73%; }
+     }
+     @media (max-height: 480px) {
+          .cs-books,
+          .cs-versions,
+          .cs-languages { height: 83%; }
+     }
+/*! End Media Queries Heights */
