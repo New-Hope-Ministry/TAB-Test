@@ -1,6 +1,3 @@
-//const scope = '/';
-const scope = '/TAB-Tester/';
-
 async function closeSave() {
      const keys = await caches.keys();
      await Promise.all(keys.map(key => caches.delete(key)));
@@ -13,7 +10,6 @@ async function saveLocal() {
         if ('serviceWorker' in navigator) {
             (async () => {
                 try {
-                    //const registration = await navigator.serviceWorker.register('sw.js', { scope: scope });
                     const registration = await navigator.serviceWorker.register('sw.js');
                     console.log('Service Worker registered with scope:', registration.scope);
                 } catch (error) {
