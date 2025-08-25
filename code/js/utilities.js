@@ -105,12 +105,15 @@ function isNumeric(value) { return !isNaN(value) && !isNaN(parseFloat(value)); }
 
 function JesusQuote(aVerse, vNum) {
 
-     if (redLetterDefault) {
-          aVerse = aVerse.replace('`', '<span class="cs-emphasis">');
-          aVerse = aVerse.replace('´', '</span>');
-     } else {
+     if (redLetterDefault === 0) {
           aVerse = aVerse.replace('`', '');
           aVerse = aVerse.replace('´', '');
+     } else if (redLetterDefault === 1) {
+          aVerse = aVerse.replace('`', '<span class="cs-emphasis">');
+          aVerse = aVerse.replace('´', '</span>');
+     } else if (redLetterDefault === 2) {
+          aVerse = aVerse.replace('`', '<span class="cs-emphasisBlue">');
+          aVerse = aVerse.replace('´', '</span>');
      };
      return `<span class="cs-verseNumber">${vNum}</span>${aVerse}`;
 };
@@ -220,17 +223,22 @@ function paragraphLayout() {
 
 function redLetter() {
 
-     if (redLetterDefault) {
+     setRedLetter++;
+     if (setRedLetter > 2) { setRedLetter = 0 };
+     redLetterDefault = setRedLetter;
+
+     if (redLetterDefault === 0) {
           document.getElementById('id-redLetter').textContent = 'Red Letter';
-          redLetterDefault = 0;
-     } else {
-          document.getElementById('id-redLetter').textContent = 'Black Letter';
+     } else if (redLetterDefault === 1) {
+          document.getElementById('id-redLetter').textContent = 'Blue Letter';
           redLetterDefault = 1;
+     } else if (redLetterDefault === 2) {
+          document.getElementById('id-redLetter').textContent = 'Black Letter';
+          redLetterDefault = 2;
      };
      getChapter();
      localStorage.setItem("redLetter", redLetterDefault);
-}
-
+};
 function removeElements(id) {
 
      let target = document.getElementById(id);
@@ -268,7 +276,7 @@ function resetDefaults() {
      localStorage.removeItem('activeLanguage1ID');
      localStorage.removeItem('activeVersionID');
      localStorage.removeItem('activeVersion1ID');
-     localStorage.removeItem('lastVersesCheck');
+     localStorage.removeItem('lastCacheCheck');
      localStorage.removeItem('redLetter');
      localStorage.removeItem('setTheme');
 
@@ -411,7 +419,6 @@ async function startUp() {
 };
 
 function toggleTheme() {
-     //document.body.classList.toggle("dark-mode");
      let theme = document.getElementById("id-theme");
      theme.classList.toggle("cs-darkTheme");
      theme.textContent = theme.classList.contains("cs-darkTheme") ? "🌙" : "☀️";

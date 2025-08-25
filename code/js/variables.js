@@ -27,6 +27,7 @@ var rotateTheme = true;
 var savedLocal = false;
 var searchOpen = false;
 var selectedVerseID = null;
+var setRedLetter = 0;
 var setTheme = '0';
 var verseCount = 0;
 var verses = [];

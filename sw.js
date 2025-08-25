@@ -1,4 +1,4 @@
-const version = 24;
+const version = 25;
 var oldVersion = version - 1;
 // Change scope in swkr.js
 
@@ -27,6 +27,18 @@ self.addEventListener('install', event => {
      event.waitUntil(
           (async () => {
                const cache = await caches.open(MAIN_CACHE);
+               await cache.addAll(urlsToCache);
+               console.log('Precached assets successfully.');
+          })()
+     );
+});
+
+/*
+self.addEventListener('install', event => {
+     event.waitUntil(
+          (async () => {
+
+               const cache = await caches.open(MAIN_CACHE);
                const oldCache = await caches.open(OLD_MAIN_CACHE);
 
                for (let url of urlsToCache) {
@@ -49,7 +61,7 @@ self.addEventListener('install', event => {
                self.skipWaiting();
           })()
      );
-});
+});*/
 
 self.addEventListener('activate', async (event) => {
 
@@ -183,13 +195,21 @@ async function fetchOnline(url, filename) {
 };
 
 self.addEventListener('message', (event) => {
-     if (event.data.action === 'checkVerses') {
-          checkVerses(); // Run it outside lifecycle events
+     if (event.data.action === 'checkCaches') {
+          checkCaches(1);
+          checkCaches(2);
      };
 });
-async function checkVerses() {
+async function checkCaches(cacheToCheck) {
 
-     const cache = await caches.open(VERSION_CACHE);
+     let checkCache = '';
+     if (cacheToCheck === 1) {
+          checkCache = MAIN_CACHE;
+     } else {
+          checkCache = VERSION_CACHE;
+     };
+
+     const cache = await caches.open(checkCache);
      const cachedRequests = await cache.keys();
      if (!cachedRequests.length) return;
 
@@ -219,9 +239,12 @@ async function checkVerses() {
                     console.log(`Resource ${url} is still fresh (ETag match or no ETag change).`);
                }
           } else {
-               console.log(`Resource ${url} in cache keys but no direct match found, skipping ETag check for now.`);
+             console.log(`Resource ${url} in cache keys but no direct match found, skipping ETag check for now.`);
           };
-
+          await sleep(500);
      });
      await Promise.all(updatePromises);
+};
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 };

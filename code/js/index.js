@@ -15,56 +15,58 @@ window.addEventListener("load", async () => {
                document.getElementById('id-readRandom').style.display = 'block';
                bookWidth();
           }, 130);
-     };
-     if (rec) {
+
           if (setTheme === '1') {
                darkTheme();
                toggleTheme();
                rotateTheme = false;
           };
-          if (!savedLocal) { document.getElementById("id-end").style.display = 'block'; };
-          startUp();
+          if (savedLocal) {
+               if (navigator.onLine) {
+                    if ('requestIdleCallback' in window) {
+                         requestIdleCallback(triggerCacheCheck);
+                    } else {
+                         setTimeout(() => {
+                              triggerCacheCheck();
+                         }, 3000);
+                    };
+               };
+          } else {
+               document.getElementById("id-end").style.display = 'block';
+               startUp();
+          };
+          if ('speechSynthesis' in window) {
+               if (speechSynthesis.onvoiceschanged !== undefined) {
+                    speechSynthesis.onvoiceschanged = listVoices;
+               } else {
+                    listVoices();
+               };
+          };
      };
      window.addEventListener("resize", adjustPosition);
-     if ('speechSynthesis' in window) {
-          if (speechSynthesis.onvoiceschanged !== undefined) {
-               speechSynthesis.onvoiceschanged = listVoices;
-          } else {
-               listVoices();
-          };
-     };
-     if (navigator.onLine) {
-          if ('requestIdleCallback' in window) {
-               requestIdleCallback(triggerCheckVerses);
-          } else {
-               setTimeout(() => {
-                    triggerCheckVerses();
-               }, 3000);
-          };
-     };
 });
 
-async function triggerCheckVerses1() {
+async function triggerCacheCheck1() {
      try {
           const registration = await navigator.serviceWorker.ready;
           const activeWorker = registration.active || navigator.serviceWorker.controller;
 
           if (activeWorker) {
-               activeWorker.postMessage({ action: 'checkVerses' });
-               console.log('checkVerses message sent to service worker.');
+               activeWorker.postMessage({ action: 'checkCaches' });
+               console.log('checkCaches message sent to service worker.');
           } else {
                console.warn('No active service worker found.');
           };
      } catch (err) {
-          console.error('Failed to trigger checkVerses:', err);
+          console.error('Failed to trigger checkCaches:', err);
      };
 };
 
-async function triggerCheckVerses() {
-     const LAST_CHECK_KEY = 'lastVersesCheck';
-     const  today = new Date();
+async function triggerCacheCheck() {
+     const LAST_CHECK_KEY = 'lastCacheCheck';
+     const today = new Date();
      const dayOfWeek = today.getDay();
-     if (dayOfWeek === 0) { console.log(`Verses not checked it's Sunday`); return; }
+     if (dayOfWeek === 0) { console.log(`Caches not checked it's Sunday`); return; }
      const now = Date.now();
      const sevenDays = 7 * 24 * 60 * 60 * 1000;
 
@@ -75,9 +77,9 @@ async function triggerCheckVerses() {
                const activeWorker = registration.active || navigator.serviceWorker.controller;
 
                if (activeWorker) {
-                    activeWorker.postMessage({ action: 'checkVerses' });
+                    activeWorker.postMessage({ action: 'checkCaches' });
                     localStorage.setItem(LAST_CHECK_KEY, now.toString());
-                    console.log('checkVerses triggered and timestamp updated.');
+                    console.log('checkCaches triggered and timestamp updated.');
                } else {
                     console.warn('No active service worker found.');
                }
@@ -101,7 +103,7 @@ async function getDefaults() {
      const params = new URLSearchParams(window.location.search);
 
      let ltr = localStorage.getItem('redLetter');
-     if (ltr) { redLetterDefault = ltr; };
+     if (ltr) { redLetterDefault = Number(ltr); setRedLetter = Number(ltr); };
 
      let vh = params.get('vh');
      if (vh) { selectedVerseID = `id-verse${vh}`; };
@@ -183,10 +185,12 @@ async function getVersion(e = null) {
      };
      if (versions[idx].rdl) {
           document.getElementById('id-redLetter').style.display = 'block';
-          if (redLetterDefault) {
-               document.getElementById('id-redLetter').textContent = 'Black Letter';
-          } else {
+          if (redLetterDefault === 0) {
                document.getElementById('id-redLetter').textContent = 'Red Letter';
+          } else if (redLetterDefault === 1) {
+               document.getElementById('id-redLetter').textContent = 'Blue Letter';
+          } else if (redLetterDefault === 2) {
+               document.getElementById('id-redLetter').textContent = 'Black Letter';
           };
      } else {
           document.getElementById('id-redLetter').style.display = 'none';
