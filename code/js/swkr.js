@@ -1,5 +1,5 @@
-//const scope = '/';
-const scope = '/TAB-Tester/';
+const scope = '/';
+//const scope = '/TAB-Tester/';
 
 async function closeSave() {
      const keys = await caches.keys();

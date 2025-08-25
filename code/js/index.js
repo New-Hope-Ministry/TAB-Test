@@ -65,7 +65,7 @@ async function triggerCheckVerses() {
      const  today = new Date();
      const dayOfWeek = today.getDay();
      if (dayOfWeek === 0) { console.log(`Verses not checked it's Sunday`); return; }
-     const now = today.now();
+     const now = Date.now();
      const sevenDays = 7 * 24 * 60 * 60 * 1000;
 
      const lastCheck = parseInt(localStorage.getItem(LAST_CHECK_KEY), 10);

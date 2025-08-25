@@ -268,6 +268,7 @@ function resetDefaults() {
      localStorage.removeItem('activeLanguage1ID');
      localStorage.removeItem('activeVersionID');
      localStorage.removeItem('activeVersion1ID');
+     localStorage.removeItem('lastVersesCheck');
      localStorage.removeItem('redLetter');
      localStorage.removeItem('setTheme');
 
