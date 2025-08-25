@@ -1,4 +1,4 @@
-const version = 23;
+const version = 24;
 var oldVersion = version - 1;
 // Change scope in swkr.js
 
