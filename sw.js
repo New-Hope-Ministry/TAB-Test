@@ -1,6 +1,5 @@
-const version = 25;
+const version = 26;
 var oldVersion = version - 1;
-// Change scope in swkr.js
 
 const MAIN_CACHE = `ARK-cache-version: ${version}`;
 const OLD_MAIN_CACHE = `ARK-cache-version: ${oldVersion}`;
@@ -28,7 +27,7 @@ self.addEventListener('install', event => {
           (async () => {
                const cache = await caches.open(MAIN_CACHE);
                await cache.addAll(urlsToCache);
-               console.log('Precached assets successfully.');
+               console.log('Precached assets successfully stored.');
           })()
      );
 });
@@ -205,9 +204,7 @@ async function checkCaches(cacheToCheck) {
      let checkCache = '';
      if (cacheToCheck === 1) {
           checkCache = MAIN_CACHE;
-     } else {
-          checkCache = VERSION_CACHE;
-     };
+     } else { checkCache = VERSION_CACHE; };
 
      const cache = await caches.open(checkCache);
      const cachedRequests = await cache.keys();
@@ -241,10 +238,10 @@ async function checkCaches(cacheToCheck) {
           } else {
              console.log(`Resource ${url} in cache keys but no direct match found, skipping ETag check for now.`);
           };
-          await sleep(500);
      });
      await Promise.all(updatePromises);
 };
+/*await sleep(500);
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
-};
+}; */

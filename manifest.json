@@ -48,21 +48,21 @@
             "sizes": "900x900", "type": "image/png", "rel": "shortcut icon"
         },
         {
-            "src": "/TAB-Test/images/icons/logo-1200.png",
-            "sizes": "1200x1200", "type": "image/png", "rel": "shortcut icon"
+            "src": "/TAB-Test/images/icons/logo-1024.png",
+            "sizes": "1024x1024", "type": "image/png", "rel": "shortcut icon"
         }
     ],
     "screenshots": [
         {
             "src": "/TAB-Test/images/screenshots/laptop.png",
-            "sizes": "735x320",
+            "sizes": "755x503",
             "type": "image/png",
             "form_factor": "wide",
             "label": "Laptop Screen"
         },
         {
             "src": "/TAB-Test/images/screenshots/moto-432.png",
-            "sizes": "320x711",
+            "sizes": "320x610",
             "type": "image/png",
             "label": "Moto-432 Screen"
         }
