@@ -14,7 +14,7 @@ const urlsToCache = [
      'code/css/index.css',
      'code/css/lateload.css',
      'code/css/variables.css',
-     'images/icons/logo-192.png',
+     'images/icons/ark-192.png',
      'code/js/index.js',
      'code/js/lateload.js',
      'code/js/loadtables.js',

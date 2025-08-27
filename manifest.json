@@ -8,47 +8,47 @@
     "theme_color": "#022a69",
     "icons": [
         {
-            "src": "/TAB-Test/images/icons/favicon-16.png",
-            "sizes": "16x16", "type": "image/png", "rel": "icon"
-        },
-        {
-            "src": "/TAB-Test/images/icons/logo-32.png",
+            "src": "/TAB-Test/images/icons/ark-32.png",
             "sizes": "32x32", "type": "image/png", "rel": "shortcut icon"
         },
         {
-            "src": "/TAB-Test/images/icons/logo-96.png",
+            "src": "/TAB-Test/images/icons/ark-64.png",
             "sizes": "96x96", "type": "image/png", "rel": "shortcut icon"
         },
         {
-            "src": "/TAB-Test/images/icons/logo-128.png",
+            "src": "/TAB-Test/images/icons/ark-96.png",
+            "sizes": "96x96", "type": "image/png", "rel": "shortcut icon"
+        },
+        {
+            "src": "/TAB-Test/images/icons/ark-128.png",
             "sizes": "128x128", "type": "image/png", "rel": "shortcut icon"
         },
         {
-            "src": "/TAB-Test/images/icons/logo-192.png",
+            "src": "/TAB-Test/images/icons/ark-192.png",
             "sizes": "192x192", "type": "image/png", "rel": "shortcut icon"
         },
         {
-            "src": "/TAB-Test/images/icons/logo-256.png",
+            "src": "/TAB-Test/images/icons/ark-256.png",
             "sizes": "256x256", "type": "image/png", "rel": "shortcut icon"
         },
         {
-            "src": "/TAB-Test/images/icons/logo-300.png",
+            "src": "/TAB-Test/images/icons/ark-300.png",
             "sizes": "300x300", "type": "image/png", "rel": "shortcut icon"
         },
         {
-            "src": "/TAB-Test/images/icons/logo-512.png",
+            "src": "/TAB-Test/images/icons/ark-512.png",
             "sizes": "512x512", "type": "image/png", "rel": "shortcut icon"
         },
         {
-            "src": "/TAB-Test/images/icons/logo-600.png",
+            "src": "/TAB-Test/images/icons/ark-600.png",
             "sizes": "600x600", "type": "image/png", "rel": "shortcut icon"
         },
         {
-            "src": "/TAB-Test/images/icons/logo-900.png",
+            "src": "/TAB-Test/images/icons/ark-900.png",
             "sizes": "900x900", "type": "image/png", "rel": "shortcut icon"
         },
         {
-            "src": "/TAB-Test/images/icons/logo-1024.png",
+            "src": "/TAB-Test/images/icons/ark-1024.png",
             "sizes": "1024x1024", "type": "image/png", "rel": "shortcut icon"
         }
     ],

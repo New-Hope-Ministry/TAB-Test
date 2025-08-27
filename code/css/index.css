@@ -27,7 +27,7 @@ body {
      z-index: 999;
 }
 
-.cs-logo { position: absolute; left: 1em; top: .4em; height: 1.7rem; width: 1.7rem; z-index: 1000; border-radius: 50%;}
+.cs-logo { position: absolute; left: 1em; top: .4em; height: 1.7rem; width: 1.7rem; z-index: 1000; }
 .cs-logoTitle { display: inline-block; position: relative; left: 2em; }
 
 .cs-title {
