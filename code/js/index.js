@@ -33,8 +33,8 @@ window.addEventListener("load", async () => {
                };
           } else {
                document.getElementById("id-end").style.display = 'block';
-               startUp();
           };
+          startUp();
           if ('speechSynthesis' in window) {
                if (speechSynthesis.onvoiceschanged !== undefined) {
                     speechSynthesis.onvoiceschanged = listVoices;

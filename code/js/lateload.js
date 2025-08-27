@@ -157,14 +157,19 @@ function nextChapter() {
 };
 
 function synthVoice() {
+    const params = new URLSearchParams(window.location.search);
+    const verid = params.get('verid');
+    const bid = params.get('bid');
+    const cn = params.get('cn');
 
-     const params = new URLSearchParams(window.location.search);
-     const verid = params.get('verid');
-     const bid = params.get('bid');
-     const cn = params.get('cn');
-     const readhref = `synth.html?verid=${verid}&bid=${bid}&cn=${cn}`;
-     window.location.href = readhref;
-     console.log('test');
+    const readParams = new URLSearchParams();
+
+    if (verid !== null && verid !== 'null') readParams.set('verid', verid);
+    if (bid !== null && bid !== 'null') readParams.set('bid', bid);
+    if (cn !== null && cn !== 'null') readParams.set('cn', cn);
+
+    const readhref = `synth.html?${readParams.toString()}`;
+    window.location.href = readhref;
 };
 
 function readChronological() {

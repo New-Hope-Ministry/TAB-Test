@@ -17,7 +17,6 @@
                     document.getElementById('id-copyrighted').textContent = copyrighted;
                }, 200);
           });
-          function aClick(ahref) { window.location.href = ahref; };
      </script>
 </head>
 
@@ -31,7 +30,10 @@
           <br><br><br><br>
           <h3 class="cs-h2">The Ark Bible QR Code</h3>
           <br>
-          <img async src="images/qr-code.png" id="id-qrcode" class="cs-qrcode" alt="The Ark Bible QR Code link" title="The Ark Bible QR Code link" onclick="aClick('index.html')"></img>
+
+          <a href="index.html">
+               <img async src="images/qr-code.png" id="id-qrcode" class="cs-qrcode" alt="The Ark Bible QR Code link" title="The Ark Bible QR Code link">
+          </a>
           <p class="cs-qrText">Scan the QR code with the camera on your device, then click on the link when it pops up
                in your camera, and The Ark Bible app will open in your default browser, if your device supports this
                functionality.</p>
