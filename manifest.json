@@ -29,7 +29,7 @@
         },
         {
             "src": "/TAB-Test/images/icons/logo-192.png",
-            "sizes": "192x192", "type": "image/png", "rel": "shortcut"
+            "sizes": "192x192", "type": "image/png", "rel": "shortcut icon"
         },
         {
             "src": "/TAB-Test/images/icons/ark-256.png",
