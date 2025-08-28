@@ -1,11 +1,14 @@
+document.addEventListener("DOMContentLoaded", function () {
+     setTimeout(function () {
+          document.getElementById('id-copyrighted').textContent = copyrighted;
+     }, 300);
+});
+
 window.addEventListener("load", async () => {
 
      let rec = false;
      rec = await getDefaults();
-     if (rec) { rec = false; rec = await loadLanguages(); };
-     if (rec) { rec = false; rec = await loadVersions(); };
-     if (rec) { rec = false; rec = await loadBooks(); };
-     if (rec) { rec = false; rec = await loadChapters(); allLoaded = true; };
+     if (rec) { rec = false; rec = await loadBoxes(); allLoaded = true; };
      if (rec) { rec = false; rec = await getVersion(); };
 
      if (rec && allLoaded) {
@@ -35,61 +38,101 @@ window.addEventListener("load", async () => {
                document.getElementById("id-end").style.display = 'block';
           };
           startUp();
-          if ('speechSynthesis' in window) {
-               if (speechSynthesis.onvoiceschanged !== undefined) {
-                    speechSynthesis.onvoiceschanged = listVoices;
-               } else {
-                    listVoices();
-               };
-          };
      };
      window.addEventListener("resize", adjustPosition);
+     if ('speechSynthesis' in window) {
+          if (speechSynthesis.onvoiceschanged !== undefined) {
+               speechSynthesis.onvoiceschanged = listVoices;
+          } else {
+               listVoices();
+          };
+     };
 });
 
-async function triggerCacheCheck1() {
-     try {
-          const registration = await navigator.serviceWorker.ready;
-          const activeWorker = registration.active || navigator.serviceWorker.controller;
+async function getChapter() {
 
-          if (activeWorker) {
-               activeWorker.postMessage({ action: 'checkCaches' });
-               console.log('checkCaches message sent to service worker.');
-          } else {
-               console.warn('No active service worker found.');
-          };
-     } catch (err) {
-          console.error('Failed to trigger checkCaches:', err);
+     let activeBook = Number(activeBookID.slice("id-book".length));
+     let activeChapter = Number(activeChapterID.slice("id-chapter".length));
+     let i = verses.findIndex(rec => rec.bid === activeBook && rec.cn === activeChapter);
+
+     removeElements('id-page');
+     let h2 = document.createElement('h2');
+     let page = document.getElementById('id-page');
+     document.getElementById('id-MenuBtn2').textContent = document.getElementById(activeBookID).textContent;
+     h2.textContent = `${document.getElementById(activeBookID).textContent} ${activeChapter}`;
+     document.getElementById('id-bottomTitleLine').textContent = h2.textContent;
+     if (isTWF) {
+          let sp2 = document.createElement('span');
+          sp2.classList.add('cs-edited');
+          sp2.textContent = ` TWF - Last Edited: ${dateEdited}`
+          h2.appendChild(sp2);
      };
-};
+     page.appendChild(h2);
 
-async function triggerCacheCheck() {
-     const LAST_CHECK_KEY = 'lastCacheCheck';
-     const today = new Date();
-     const dayOfWeek = today.getDay();
-     if (dayOfWeek === 0) { console.log(`Caches not checked it's Sunday`); return; }
-     const now = Date.now();
-     const sevenDays = 7 * 24 * 60 * 60 * 1000;
+     let p;
+     let pn;
+     let sp;
+     let spa;
+     let vt;
+     let vNum;
 
-     const lastCheck = parseInt(localStorage.getItem(LAST_CHECK_KEY), 10);
-     if (!lastCheck || now - lastCheck >= sevenDays) {
-          try {
-               const registration = await navigator.serviceWorker.ready;
-               const activeWorker = registration.active || navigator.serviceWorker.controller;
+     verseCount = 0;
+     while (i < verses.length && verses[i].cn === activeChapter && verses[i].bid === activeBook) {
+          p = document.createElement('p');
+          p.id = `id-p${verses[i].vid}`;
+          pn = verses[i].pn;
+          if (pn > 0 && paragraphLayoutDefault) {
+               while (verses[i].pn === pn) {
+                    sp = document.createElement('span');
+                    sp.id = `id-versNumber${verses[i].vn}`;
+                    if (verses[i].vn === 1) {
+                         vNum = `${verses[i].vn} `;
+                    } else { vNum = ` ${verses[i].vn} `; };
+                    let aVerse = verses[i].vt;
 
-               if (activeWorker) {
-                    activeWorker.postMessage({ action: 'checkCaches' });
-                    localStorage.setItem(LAST_CHECK_KEY, now.toString());
-                    console.log('checkCaches triggered and timestamp updated.');
+                    if (verses[i].jq === 1) {
+                         sp.innerHTML = JesusQuote(aVerse, vNum);
+                    } else {
+                         spa = document.createElement('span');
+                         spa.classList.add("cs-verseNumber");
+                         spa.textContent = vNum;
+                         vt = document.createTextNode(aVerse);
+                         sp.appendChild(spa);
+                         sp.appendChild(vt);
+                    };
+                    p.appendChild(sp);
+                    i++;
+                    verseCount++;
+               };
+          } else {
+               sp = document.createElement('span');
+               sp.id = `id-versNumber${verses[i].vn}`;
+               vNum = `${verses[i].vn} `;
+               let aVerse = verses[i].vt;
+               if (verses[i].jq === 1) {
+                    sp.innerHTML = JesusQuote(aVerse, vNum);
                } else {
-                    console.warn('No active service worker found.');
-               }
-          } catch (err) {
-               console.error('Failed to trigger checkVerses:', err);
-          }
-     } else {
-          console.log('checkVerses skipped — last run was less than 7 days ago.');
-     }
-}
+                    spa = document.createElement('span');
+                    spa.classList.add("cs-verseNumber");
+                    spa.textContent = vNum;
+                    vt = document.createTextNode(aVerse);
+                    sp.appendChild(spa);
+                    sp.appendChild(vt);
+               };
+               p.classList.add("cs-singleVerse");
+               p.appendChild(sp);
+               i++;
+               verseCount++;
+          };
+          page.appendChild(p);
+     };
+     loadVerses();
+     if (activeBook === 1 && activeChapter === 1) { document.getElementById('id-bottomLastLine').style.visibility = 'hidden'; } else { document.getElementById('id-bottomLastLine').style.visibility = 'visible'; };
+
+     if (activeBook === 66 && activeChapter === 22) { document.getElementById('id-bottomNextLine').style.visibility = 'hidden'; } else { document.getElementById('id-bottomNextLine').style.visibility = 'visible'; };
+     setFontSize();
+     document.getElementById('id-MenuBtn3').textContent = `${document.getElementById(activeChapterID).textContent}:`;
+};
 
 async function getDefaults() {
 
@@ -206,91 +249,6 @@ async function getVersion(e = null) {
      return true;
 };
 
-async function getChapter() {
-
-     let activeBook = Number(activeBookID.slice("id-book".length));
-     let activeChapter = Number(activeChapterID.slice("id-chapter".length));
-     let i = verses.findIndex(rec => rec.bid === activeBook && rec.cn === activeChapter);
-
-     removeElements('id-page');
-     let h2 = document.createElement('h2');
-     let page = document.getElementById('id-page');
-     document.getElementById('id-MenuBtn2').textContent = document.getElementById(activeBookID).textContent;
-     h2.textContent = `${document.getElementById(activeBookID).textContent} ${activeChapter}`;
-     document.getElementById('id-bottomTitleLine').textContent = h2.textContent;
-     if (isTWF) {
-          let sp2 = document.createElement('span');
-          sp2.classList.add('cs-edited');
-          sp2.textContent = ` TWF - Last Edited: ${dateEdited}`
-          h2.appendChild(sp2);
-     };
-     page.appendChild(h2);
-
-     let p;
-     let pn;
-     let sp;
-     let spa;
-     let vt;
-     let vNum;
-
-     verseCount = 0;
-     while (i < verses.length && verses[i].cn === activeChapter && verses[i].bid === activeBook) {
-          p = document.createElement('p');
-          p.id = `id-p${verses[i].vid}`;
-          pn = verses[i].pn;
-          if (pn > 0 && paragraphLayoutDefault) {
-               while (verses[i].pn === pn) {
-                    sp = document.createElement('span');
-                    sp.id = `id-versNumber${verses[i].vn}`;
-                    if (verses[i].vn === 1) {
-                         vNum = `${verses[i].vn} `;
-                    } else { vNum = ` ${verses[i].vn} `; };
-                    let aVerse = verses[i].vt;
-
-                    if (verses[i].jq === 1) {
-                         sp.innerHTML = JesusQuote(aVerse, vNum);
-                    } else {
-                         spa = document.createElement('span');
-                         spa.classList.add("cs-verseNumber");
-                         spa.textContent = vNum;
-                         vt = document.createTextNode(aVerse);
-                         sp.appendChild(spa);
-                         sp.appendChild(vt);
-                    };
-                    p.appendChild(sp);
-                    i++;
-                    verseCount++;
-               };
-          } else {
-               sp = document.createElement('span');
-               sp.id = `id-versNumber${verses[i].vn}`;
-               vNum = `${verses[i].vn} `;
-               let aVerse = verses[i].vt;
-               if (verses[i].jq === 1) {
-                    sp.innerHTML = JesusQuote(aVerse, vNum);
-               } else {
-                    spa = document.createElement('span');
-                    spa.classList.add("cs-verseNumber");
-                    spa.textContent = vNum;
-                    vt = document.createTextNode(aVerse);
-                    sp.appendChild(spa);
-                    sp.appendChild(vt);
-               };
-               p.classList.add("cs-singleVerse");
-               p.appendChild(sp);
-               i++;
-               verseCount++;
-          };
-          page.appendChild(p);
-     };
-     loadVerses();
-     if (activeBook === 1 && activeChapter === 1) { document.getElementById('id-bottomLastLine').style.visibility = 'hidden'; } else { document.getElementById('id-bottomLastLine').style.visibility = 'visible'; };
-
-     if (activeBook === 66 && activeChapter === 22) { document.getElementById('id-bottomNextLine').style.visibility = 'hidden'; } else { document.getElementById('id-bottomNextLine').style.visibility = 'visible'; };
-     setFontSize();
-     document.getElementById('id-MenuBtn3').textContent = `${document.getElementById(activeChapterID).textContent}:`;
-};
-
 async function listVoices() {
 
      let avoice;
@@ -313,5 +271,43 @@ async function listVoices() {
      } else {
           document.getElementById('id-listen').style.display = 'none';
           document.getElementById('id-brListen').style.display = 'none';
+     };
+};
+
+async function loadBoxes() {
+
+     loadLanguages();
+     loadVersions();
+     loadBooks();
+     loadChapters();
+     return true;
+};
+
+async function triggerCacheCheck() {
+     const LAST_CHECK_KEY = 'lastCacheCheck';
+     const today = new Date();
+     const dayOfWeek = today.getDay();
+     if (dayOfWeek === 0) { console.log(`Caches not checked it's Sunday`); return; }
+     const now = Date.now();
+     const sevenDays = 7 * 24 * 60 * 60 * 1000;
+
+     const lastCheck = parseInt(localStorage.getItem(LAST_CHECK_KEY), 10);
+     if (!lastCheck || now - lastCheck >= sevenDays) {
+          try {
+               const registration = await navigator.serviceWorker.ready;
+               const activeWorker = registration.active || navigator.serviceWorker.controller;
+
+               if (activeWorker) {
+                    activeWorker.postMessage({ action: 'checkCaches' });
+                    localStorage.setItem(LAST_CHECK_KEY, now.toString());
+                    console.log('checkCaches triggered and timestamp updated.');
+               } else {
+                    console.warn('No active service worker found.');
+               }
+          } catch (err) {
+               console.error('Failed to trigger checkVerses:', err);
+          }
+     } else {
+          console.log('checkVerses skipped — last run was less than 7 days ago.');
      };
 };

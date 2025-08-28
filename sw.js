@@ -13,11 +13,7 @@ const urlsToCache = [
      'code/css/index.css',
      'code/css/lateload.css',
      'code/css/variables.css',
-     'images/icons/ark-192.png',
      'code/js/index.js',
-     'code/js/lateload.js',
-     'code/js/loadtables.js',
-     'code/js/searcher.js',
      'code/js/utilities.js',
      'code/js/variables.js',
 ];
@@ -31,36 +27,6 @@ self.addEventListener('install', event => {
           })()
      );
 });
-
-/*
-self.addEventListener('install', event => {
-     event.waitUntil(
-          (async () => {
-
-               const cache = await caches.open(MAIN_CACHE);
-               const oldCache = await caches.open(OLD_MAIN_CACHE);
-
-               for (let url of urlsToCache) {
-                    const headResponse = await fetch(url, { method: 'HEAD' });
-                    const newETag = headResponse.headers.get('ETag');
-                    let cachedResponse = await oldCache.match(url);
-                    if (cachedResponse) {
-                         const oldETag = cachedResponse.headers.get('ETag');
-                         if (newETag && oldETag && newETag === oldETag) {
-                              await cache.put(url, cachedResponse);
-                         } else {
-                              const newResponse = await fetch(url, { cache: 'reload' });
-                              if (newResponse) { await cache.put(url, newResponse); };
-                         };
-                    } else {
-                         const newResponse = await fetch(url, { cache: 'reload' });
-                         if (newResponse) { await cache.put(url, newResponse); };
-                    };
-               };
-               self.skipWaiting();
-          })()
-     );
-});*/
 
 self.addEventListener('activate', async (event) => {
 
